@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="Springboot+MybatisPlus+Vue 前后端分离由于学了一点的mybatis-plus想要体验项目的一个整合，于是就整了这个单页面应用，方便助于自己理解。 该项目可以自己提升改进，只是学习项目为主，自主分辨最合适的方法学习。 前置准备： 写过spring boot+mybatis整合 了解过myabtis-Plus 准备好数据库 准备好Springboot项目  数据库：12345">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Springboot+MybatisPlus+Vue 前后端分离">
+<meta property="og:url" content="https://karel-cyber.github.io/2025/01/16/Springboot-MybatisPlus-Vue-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/index.html">
+<meta property="og:site_name" content="秦旭.Blog">
+<meta property="og:description" content="Springboot+MybatisPlus+Vue 前后端分离由于学了一点的mybatis-plus想要体验项目的一个整合，于是就整了这个单页面应用，方便助于自己理解。 该项目可以自己提升改进，只是学习项目为主，自主分辨最合适的方法学习。 前置准备： 写过spring boot+mybatis整合 了解过myabtis-Plus 准备好数据库 准备好Springboot项目  数据库：12345">
+<meta property="og:locale">
+<meta property="og:image" content="https://karel-cyber.github.io/img/404.jpg">
+<meta property="og:image" content="https://karel-cyber.github.io/img/404.jpg">
+<meta property="og:image" content="https://karel-cyber.github.io/img/404.jpg">
+<meta property="og:image" content="https://karel-cyber.github.io/img/404.jpg">
+<meta property="article:published_time" content="2025-01-16T02:55:41.000Z">
+<meta property="article:modified_time" content="2025-01-16T02:59:26.934Z">
+<meta property="article:author" content="Qinx Xu">
+<meta property="article:tag" content="技术-理论">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://karel-cyber.github.io/img/404.jpg">
+
+
+<title >Springboot+MybatisPlus+Vue 前后端分离</title>
+
+<!-- Favicon -->
+
+    <link href='/log.svg?v=2.2.4' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/log.svg?v=2.2.4' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"karel-cyber.github.io","author":"Qinx Xu","root":"/","typed_text":["Karel-cyber"],"theme_version":"2.2.4","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":null,"icon16":"log.svg","icon32":"log.svg","apple_touch_icon":null,"webmanifest":null,"visibilitychange":true,"hidden":"failure.ico","show_text":"(/≧▽≦/)咦！又好了！","hide_text":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":true,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"mac","height_limit":200},"toc":{"post_title":true},"live_time":{"start_time":"2024/01/12 17:00:00","prefix":"博客已萌萌哒运行 undefined 天"},"danmu":{"enable":true,"el":".trm-banner","avatar":true,"delayRange":5000,"speed":80},"covers":["/img/block.jpg","https://img2.wallspic.com/previews/7/6/8/1/7/171867/171867-wu_kong-chao_ji_sai_ya_ren-sai_ya_ren-zamasu-long_zhu-500x.jpg","https://img3.wallspic.com/previews/2/0/1/8/6/168102/168102-yi_shu-ka_tong-mian_bu_biao_qing-kuai_le_de-ji_qie-500x.jpg","https://img2.wallspic.com/previews/2/6/4/3/7/173462/173462-qi_fen-zi_se_de-zi_ran_jing_guan-yu_hui-de_ping_xian-500x.jpg","https://img2.wallspic.com/previews/3/3/9/1/3/131933/131933-mo_xing-xiao_jie-huang_se_de-nu_hai-fa_xing-500x.jpg","https://img1.wallspic.com/previews/8/3/4/6/2/126438/126438-wei_lai_zhu_yi-shu_ma_yi_shu-jie_duan-zi_ben_shi-yi_shu-500x.jpg","https://img2.wallspic.com/previews/0/1/5/0/7/170510/170510-guang-azure-zi_se_de-zi_ran_huan_jing-zi_ran_jing_guan-500x.jpg","https://img2.wallspic.com/previews/3/6/9/6/5/156963/156963-yi_shu-qi_fen-yu_hui-shou_shi-ren_men_zai_zi_ran_jie-500x.jpg","https://img1.wallspic.com/previews/0/9/3/5/6/165390/165390-qi_fen-zi_se_de-zi_ran_huan_jing-zi_ran_jing_guan-tian_wen_xue_dui_xiang-500x.jpg","https://img3.wallspic.com/previews/2/8/6/1/7/171682/171682-yi_kuai-xing_zhi-ye_ti-yi_shu-shui_xia-500x.jpg","https://img1.wallspic.com/previews/7/1/9/9/89917/89917-bo_xi_ta_nuo-an_zhuang_de_feng_jing-cheng_shi-suo_lun_tuo-shan_zhan-500x.jpg","https://img1.wallspic.com/previews/6/2/3/5/6/165326/165326-pang_ke2077-pang_ke-qi_fen-xing_zhi-zi_se_de-500x.jpg","https://img2.wallspic.com/previews/8/9/4/5/6/165498/165498-ka_tong-tao-pin_hong_se-zhang_zhang_de_tou_fa-ji_qie-500x.jpg","https://img3.wallspic.com/previews/5/7/4/2/7/172475/172475-yi_shu-tao-tou_fa-ka_tong-500x.jpg","https://img2.wallspic.com/previews/5/0/9/0/70905/70905-hai_yang-ma_er_dai_fu-tian_kong-du_jia_cun-huan_jiao-500x.jpg","https://img3.wallspic.com/previews/4/3/4/8/6/168434/168434-xing_zhi-zi_ran_jing_guan-dan_huang-shui_dao-zhi_bei-500x.jpg","https://img2.wallspic.com/previews/6/5/4/5/6/165456/165456-giy_fu_gang-e_mo_sha_shoukimetsu_no_yaiba-shan_zi_de_yi_shu-zi_se_de-dian_lan_se_de-500x.jpg","https://img1.wallspic.com/previews/5/4/0/4/7/174045/174045-jian_ying-qi_fen-ren_men_zai_zi_ran_jie-tian_wen_xue_dui_xiang-yi_shu-500x.jpg","https://img1.wallspic.com/previews/9/3/1/6/5/156139/156139-feng_jing_hua-yi_shu-shu_ma_yi_shu-qi_fen-sheng_tai_qu-500x.jpg","https://img2.wallspic.com/previews/7/6/4/5/7/175467/175467-wo_de_xue_shu_jie_de_ying_xiong-tao-yi_shu-ka_tong-azure-500x.jpg","https://img1.wallspic.com/previews/3/7/0/0/7/170073/170073-liang_ge_ling-ka_tong-shou_shi-chuang_zao_xing_de_yi_shu-hong_se_de-500x.jpg","https://img1.wallspic.com/previews/1/8/3/6/6/166381/166381-shi_zi-xin_ba-bai_se_shi_zi-hu_xu-mao_ke-500x.jpg","https://img3.wallspic.com/previews/4/2/2/3/7/173224/173224-ri_luo-shui_zi_yuan-qi_fen-yu_hui-zi_se_de-500x.jpg","https://img1.wallspic.com/previews/7/5/7/9/6/169757/169757-ji_bo_li_de_bo_wu_guan-zi_ran_jing_guan-yi_shu-ji_yun-500x.jpg","https://img1.wallspic.com/previews/5/2/0/6/7/176025/176025-qi_fen-tian_wen_xue_dui_xiang-yi_shu-dian_lan_se_de-yuan_quan-500x.jpg","https://img3.wallspic.com/previews/6/5/8/1/4/141856/141856-hen_ku_de-hui_hua-yu_yan_jing_tou-zhai_nan-tu_xing_she_ji-500x.jpg","https://img1.wallspic.com/previews/2/1/6/5/6/165612/165612-kimetsu_no_yaiba-e_mo_sha_shoukimetsu_no_yaiba-tao-tou_fa-wai_tao-500x.jpg","https://img3.wallspic.com/previews/5/1/0/2/4/142015/142015-feng_ge-ka_ka_xi_qi_mu-huo_ying_ren_zhe-tu_xing_she_ji-shi_jue_yi_shu-500x.jpg","https://img1.wallspic.com/previews/8/8/7/8/5/158788/158788-e_mo_sha_shoukimetsu_no_yaiba-shnen_man_hua-tao-ka_tong-azure-500x.jpg"],"creative_commons":{"license":"by-nc-sa","language":"deed.zh-hans"},"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"preload":true,"trigger":"auto"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2025-01-16 10:59:26"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.2.4" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+
+ 
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    首页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/archives/" target="">
+                    归档
+                </a>
+                
+                <ul>
+                    
+                    <li>
+                        <a  href="/tags/" target="">
+                            标签
+                        </a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/links/" target="">
+                    友链
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    关于
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/gallery/" target="">
+                    相册
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+    
+    <div id="trm-search-btn" class="trm-search-btn">
+        <i class="iconfont fas fa-search"></i>
+    </div>
+     
+
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/banner.png">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            NEWS LETTER
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            Springboot+MybatisPlus+Vue 前后端分离
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2025
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/qinxu_avatar.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        秦旭
+    </h5>
+    
+        <div class="trm-label">
+            I`m
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com/Karel-cyber" title="github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+        <a href="https://gitee.com/stfford" title="gitee" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-gofore"></i>
+        </a>
+    
+        <a href="https://steamcommunity.com/profiles/76561199079210476/" title="steam" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-steam"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                位置:
+            </div>
+            <div class="trm-label trm-label-light">
+                广东-深圳
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                个人简介:
+            </div>
+            <div class="trm-label trm-label-light">
+                应届实习的开发小白~
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:mahmudakif814@gmail.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            01/16
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            10:55
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Qinx Xu
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h1 id="Springboot-MybatisPlus-Vue-前后端分离"><a href="#Springboot-MybatisPlus-Vue-前后端分离" class="headerlink" title="Springboot+MybatisPlus+Vue 前后端分离"></a>Springboot+MybatisPlus+Vue 前后端分离</h1><p>由于学了一点的mybatis-plus想要体验项目的一个整合，于是就整了这个单页面应用，方便助于自己理解。</p>
+<p>该项目可以自己提升改进，只是学习项目为主，自主分辨最合适的方法学习。</p>
+<h3 id="前置准备："><a href="#前置准备：" class="headerlink" title="前置准备："></a>前置准备：</h3><ul>
+<li>写过spring boot+mybatis整合</li>
+<li>了解过myabtis-Plus</li>
+<li>准备好数据库</li>
+<li>准备好Springboot项目</li>
+</ul>
+<h3 id="数据库："><a href="#数据库：" class="headerlink" title="数据库："></a>数据库：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">/*</span><br><span class="line"> Navicat Premium Data Transfer</span><br><span class="line"></span><br><span class="line"> Source Server         : localhost</span><br><span class="line"> Source Server Type    : MySQL</span><br><span class="line"> Source Server Version : 80034</span><br><span class="line"> Source Host           : localhost:3306</span><br><span class="line"> Source Schema         : test_db</span><br><span class="line"></span><br><span class="line"> Target Server Type    : MySQL</span><br><span class="line"> Target Server Version : 80034</span><br><span class="line"> File Encoding         : 65001</span><br><span class="line"></span><br><span class="line"> Date: 11/06/2024 10:55:06</span><br><span class="line">*/</span><br><span class="line"></span><br><span class="line">SET NAMES utf8mb4;</span><br><span class="line">SET FOREIGN_KEY_CHECKS = 0;</span><br><span class="line"></span><br><span class="line">-- ----------------------------</span><br><span class="line">-- Table structure for hospital_set</span><br><span class="line">-- ----------------------------</span><br><span class="line">DROP TABLE IF EXISTS `hospital_set`;</span><br><span class="line">CREATE TABLE `hospital_set`  (</span><br><span class="line">  `id` bigint NOT NULL AUTO_INCREMENT COMMENT &#x27;编号&#x27;,</span><br><span class="line">  `hosname` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL COMMENT &#x27;医院名称&#x27;,</span><br><span class="line">  `hoscode` varchar(30) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL COMMENT &#x27;医院编号&#x27;,</span><br><span class="line">  `api_url` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL COMMENT &#x27;api基础路径&#x27;,</span><br><span class="line">  `sign_key` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL COMMENT &#x27;签名秘钥&#x27;,</span><br><span class="line">  `contacts_name` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL COMMENT &#x27;联系人&#x27;,</span><br><span class="line">  `contacts_phone` varchar(11) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NULL DEFAULT NULL COMMENT &#x27;联系人手机&#x27;,</span><br><span class="line">  `status` tinyint NOT NULL DEFAULT 0 COMMENT &#x27;状态&#x27;,</span><br><span class="line">  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT &#x27;创建时间&#x27;,</span><br><span class="line">  `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT &#x27;更新时间&#x27;,</span><br><span class="line">  `is_deleted` tinyint NOT NULL DEFAULT 0 COMMENT &#x27;逻辑删除(1:已删除，0:未删除)&#x27;,</span><br><span class="line">  PRIMARY KEY (`id`) USING BTREE,</span><br><span class="line">  UNIQUE INDEX `uk_hoscode`(`hoscode` ASC) USING BTREE</span><br><span class="line">) ENGINE = InnoDB AUTO_INCREMENT = 39 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_general_ci COMMENT = &#x27;医院设置表&#x27; ROW_FORMAT = Dynamic;</span><br><span class="line"></span><br><span class="line">SET FOREIGN_KEY_CHECKS = 1;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>弄好测试数据即可。</p>
+<h3 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a>pom.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br></pre></td><td class="code"><pre><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        mybatis-plus 依赖--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baomidou<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-plus-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        Springboot-jdbcs--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        thymeleaf模板引擎--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        web依赖--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        热部署工具--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        mysql的驱动包--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        lombok的依赖类--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        springTest依赖类--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        单元测试--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        mybatis-plus代码生成器--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baomidou<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-plus-generator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.6<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--        生成器默认模板引擎--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.velocity<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>velocity-engine-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;velocity-engine-core.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--        knife4j增强型文档--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- https://mvnrepository.com/artifact/com.github.xiaoymin/knife4j-spring-boot-starter --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.xiaoymin<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>knife4j-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.0.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-dependencies<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring-boot.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">scope</span>&gt;</span>import<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencyManagement</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.8.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">encoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">encoding</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">version</span>&gt;</span>$&#123;spring-boot.version&#125;<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">mainClass</span>&gt;</span>mybatisplusdemo.SpringbootMybatisPlusDemoApplication<span class="tag">&lt;/<span class="name">mainClass</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">skip</span>&gt;</span>true<span class="tag">&lt;/<span class="name">skip</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">id</span>&gt;</span>repackage<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span><br><span class="line">                            <span class="tag">&lt;<span class="name">goal</span>&gt;</span>repackage<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>以上根据需要去添加，而不是一股脑添加。</p>
+<p>添加完依赖类之后我们需要去application.yml设置</p>
+<h3 id="application-yml"><a href="#application-yml" class="headerlink" title="application.yml"></a>application.yml</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8080</span></span><br><span class="line"></span><br><span class="line"><span class="attr">mybatis-plus:</span></span><br><span class="line">  <span class="attr">type-aliases-package:</span> <span class="string">com.wang.pojo</span></span><br><span class="line">  <span class="attr">mapper-locations:</span> <span class="string">classpath:/mappers/*.xml</span></span><br><span class="line">  <span class="attr">configuration:</span></span><br><span class="line">    <span class="comment">#    驼峰开启</span></span><br><span class="line">    <span class="attr">map-underscore-to-camel-case:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment">#    自带日志开启</span></span><br><span class="line">    <span class="attr">log-impl:</span> <span class="string">org.apache.ibatis.logging.stdout.StdOutImpl</span></span><br><span class="line">    <span class="comment">#主键生成策略：雪花算法</span></span><br><span class="line">  <span class="attr">global-config:</span></span><br><span class="line">    <span class="attr">db-config:</span></span><br><span class="line">      <span class="attr">id-type:</span> <span class="string">assign_id</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">thymeleaf:</span></span><br><span class="line">    <span class="attr">cache:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">prefix:</span> <span class="string">classpath:/templates/</span></span><br><span class="line">    <span class="attr">suffix:</span> <span class="string">.html</span></span><br><span class="line">    <span class="attr">encoding:</span> <span class="string">UTF-8</span></span><br><span class="line">    <span class="attr">mode:</span> <span class="string">HTML5</span></span><br><span class="line">  <span class="attr">profiles:</span></span><br><span class="line">    <span class="attr">active:</span> <span class="string">dev</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">$&#123;wang.datasource.driver-class-name&#125;</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">$&#123;wang.datasource.url&#125;</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">$&#123;wang.datasource.username&#125;</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">$&#123;wang.datasource.password&#125;</span></span><br><span class="line"><span class="comment"># 启动报错需要修改以下mvc配置 Failed to start bean &#x27;documentationPluginsBootstrapper&#x27;</span></span><br><span class="line">  <span class="attr">mvc:</span></span><br><span class="line">    <span class="attr">pathmatch:</span></span><br><span class="line">      <span class="attr">matching-strategy:</span> <span class="string">ant_path_matcher</span></span><br></pre></td></tr></table></figure>
+
+<p>配置一些基础的属性，这里我分了两个文件，还有一个是application-dev.yml</p>
+<h3 id="application-dev-yml"><a href="#application-dev-yml" class="headerlink" title="application-dev.yml"></a>application-dev.yml</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">wang:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost:3306/test_db?userSSL=false&amp;characterEncoding=utf8</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">root</span></span><br></pre></td></tr></table></figure>
+
+<p>设置完这些，我们可以使用mybatis-plus的代码生成器去实现包和代码的建设</p>
+<h3 id="Mybatis-plus的CodeGenerator"><a href="#Mybatis-plus的CodeGenerator" class="headerlink" title="Mybatis-plus的CodeGenerator"></a>Mybatis-plus的CodeGenerator</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wang;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.generator.FastAutoGenerator;</span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.generator.engine.FreemarkerTemplateEngine;</span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.generator.engine.VelocityTemplateEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.nio.file.Paths;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CodeGenerator</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        FastAutoGenerator.create(<span class="string">&quot;jdbc:mysql://localhost:3306/test_db?userSSL=false&amp;characterEncoding=utf8&quot;</span>, <span class="string">&quot;root&quot;</span>, <span class="string">&quot;root&quot;</span>)</span><br><span class="line">                .globalConfig(builder -&gt; builder</span><br><span class="line">                        .author(<span class="string">&quot;wang&quot;</span>)</span><br><span class="line">                        .outputDir(Paths.get(System.getProperty(<span class="string">&quot;user.dir&quot;</span>)) + <span class="string">&quot;/src/main/java&quot;</span>)</span><br><span class="line">                        .commentDate(<span class="string">&quot;yyyy-MM-dd&quot;</span>)</span><br><span class="line">                )</span><br><span class="line">                .packageConfig(builder -&gt; builder</span><br><span class="line">                        .parent(<span class="string">&quot;com.wang.mybatisplus&quot;</span>)</span><br><span class="line">                        .entity(<span class="string">&quot;entity&quot;</span>)</span><br><span class="line">                        .mapper(<span class="string">&quot;mapper&quot;</span>)</span><br><span class="line">                        .service(<span class="string">&quot;service&quot;</span>)</span><br><span class="line">                        .serviceImpl(<span class="string">&quot;service.impl&quot;</span>)</span><br><span class="line">                        .xml(<span class="string">&quot;mapper.xml&quot;</span>)</span><br><span class="line">                )</span><br><span class="line">                .strategyConfig(builder -&gt; builder</span><br><span class="line">                        .entityBuilder()</span><br><span class="line">                        .enableLombok()</span><br><span class="line">                )</span><br><span class="line">                .templateEngine(<span class="keyword">new</span> <span class="title class_">VelocityTemplateEngine</span>())</span><br><span class="line">                .execute();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在里面设置到包名，数据库名，然后模板引擎，就可以生成了，效果自己尝试就知道了。</p>
+<p>当我们生成有了</p>
+<img src="/2025/01/16/Springboot-MybatisPlus-Vue-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/image-20240611102305274.png" class="" title="image-20240611102305274"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'>
+
+<p>接着我们需要的的一步就是检查生成的包和文件是否有问题，注解这些，如果没有问题，那就是写Config层了</p>
+<p>让我们看看实体类的生成细节</p>
+<h3 id="实体类生成细节"><a href="#实体类生成细节" class="headerlink" title="实体类生成细节"></a>实体类生成细节</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wang.entity;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.annotation.IdType;</span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.annotation.TableId;</span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.annotation.TableName;</span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"><span class="keyword">import</span> java.time.LocalDateTime;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"><span class="keyword">import</span> lombok.Getter;</span><br><span class="line"><span class="keyword">import</span> lombok.Setter;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 医院设置表</span></span><br><span class="line"><span class="comment"> * &lt;/p&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wang</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span> 2024-06-10</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Getter</span></span><br><span class="line"><span class="meta">@Setter</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@TableName(&quot;hospital_set&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HospitalSet</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">long</span> <span class="variable">serialVersionUID</span> <span class="operator">=</span> <span class="number">1L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 编号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@TableId(value = &quot;id&quot;, type = IdType.AUTO)</span></span><br><span class="line">    <span class="keyword">private</span> Long id;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 医院名称</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> String hosname;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 医院编号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> String hoscode;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * api基础路径</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> String apiUrl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 签名秘钥</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> String signKey;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 联系人</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> String contactsName;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 联系人手机</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> String contactsPhone;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 状态</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> Byte status;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 创建时间</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> LocalDateTime createTime;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 更新时间</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> LocalDateTime updateTime;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 逻辑删除(1:已删除，0:未删除)</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">private</span> Byte isDeleted;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>总体来说还是非常满意的。</p>
+<h3 id="Config层"><a href="#Config层" class="headerlink" title="Config层"></a>Config层</h3><p>config层主要是为了实现生成接口文档、拦截器（当然这里没有）、视图控制、公共字段的填充以及mybatisplus的控制等</p>
+<p>第一个名字为 MyConfig，该文件主要编写了公共字段的填充，例如mybatis-plus在执行插入和更新操作时，我们可以拦截住，然后对公共部分填充</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wang.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;</span><br><span class="line"><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.reflection.MetaObject;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.time.LocalDateTime;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 公共字段填充</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MyConfig</span> &#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> MetaObjectHandler <span class="title function_">metaObjectHandler</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">MetaObjectHandler</span>() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">insertFill</span><span class="params">(MetaObject metaObject)</span> &#123;</span><br><span class="line"></span><br><span class="line">                log.info(<span class="string">&quot;开始处理 insert方式 公共字段&quot;</span>);</span><br><span class="line">                metaObject.setValue(<span class="string">&quot;createTime&quot;</span>, LocalDateTime.now());</span><br><span class="line">                metaObject.setValue(<span class="string">&quot;updateTime&quot;</span>, LocalDateTime.now());</span><br><span class="line"><span class="comment">//                metaObject.setValue(&quot;createUser&quot;, BaseContext.getCurrentId());</span></span><br><span class="line"><span class="comment">//                metaObject.setValue(&quot;updateUser&quot;, BaseContext.getCurrentId());</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">updateFill</span><span class="params">(MetaObject metaObject)</span> &#123;</span><br><span class="line">                <span class="comment">//验证LoginFilter 的doFilter</span></span><br><span class="line">                <span class="comment">//    MyMetaObjectHandler的updateFill</span></span><br><span class="line">                <span class="comment">//    EmployeeController的update方法使用同一线程</span></span><br><span class="line">                <span class="type">Long</span> <span class="variable">sameId</span> <span class="operator">=</span> Thread.currentThread().getId();</span><br><span class="line">                log.info(<span class="string">&quot;doFilter  updateFill  update sameId = &#123;&#125;&quot;</span>, sameId);</span><br><span class="line">                log.info(<span class="string">&quot;开始处理 update方式 公共字段&quot;</span>);</span><br><span class="line">                metaObject.setValue(<span class="string">&quot;updateTime&quot;</span>, LocalDateTime.now());</span><br><span class="line">                <span class="comment">//          metaObject.setValue(&quot;updateUser&quot;, BaseContext.getCurrentId());</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第二个名字为MybatisPlusConfig，主要是实现 添加分页插件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wang.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.annotation.DbType;</span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;</span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;</span><br><span class="line"><span class="keyword">import</span> org.mybatis.spring.annotation.MapperScan;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@MapperScan(&quot;scan.your.mapper.package&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">MybatisPlusConfig</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 添加分页插件</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> MybatisPlusInterceptor <span class="title function_">mybatisPlusInterceptor</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="type">MybatisPlusInterceptor</span> <span class="variable">interceptor</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">MybatisPlusInterceptor</span>();</span><br><span class="line">        interceptor.addInnerInterceptor(<span class="keyword">new</span> <span class="title class_">PaginationInnerInterceptor</span>(DbType.MYSQL)); <span class="comment">// 如果配置多个插件, 切记分页最后添加</span></span><br><span class="line">        <span class="comment">// 如果有多数据源可以不配具体类型, 否则都建议配上具体的 DbType</span></span><br><span class="line">        <span class="keyword">return</span> interceptor;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;		</span><br></pre></td></tr></table></figure>
+
+<p>最后一个名为 Swagger2Config,准确的来说是Swagger3，因为2不兼容springboot2.5以上的版本，所以只能用knife4j增强型文档配合。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wang.config;</span><br><span class="line"><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.builders.ApiInfoBuilder;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.builders.PathSelectors;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.builders.RequestHandlerSelectors;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.service.ApiInfo;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.service.Contact;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.spi.DocumentationType;</span><br><span class="line"><span class="keyword">import</span> springfox.documentation.spring.web.plugins.Docket;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Swagger3配置信息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Swagger2Config</span> <span class="keyword">extends</span> <span class="title class_">WebMvcConfigurationSupport</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 通过knife4j生成接口文档</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> Docket <span class="title function_">docket1</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Docket</span>(DocumentationType.SWAGGER_2)</span><br><span class="line">                .apiInfo(apiInfo())</span><br><span class="line">                .select()</span><br><span class="line">                .apis(RequestHandlerSelectors.basePackage(<span class="string">&quot;com.wang.controller&quot;</span>)) <span class="comment">// 确保包路径正确</span></span><br><span class="line">                .paths(PathSelectors.any())</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> ApiInfo <span class="title function_">apiInfo</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">ApiInfoBuilder</span>()</span><br><span class="line">                .title(<span class="string">&quot;使用 Swagger 生成的接口文档&quot;</span>)</span><br><span class="line">                .description(<span class="string">&quot;开发测试&quot;</span>)</span><br><span class="line">                .contact(<span class="keyword">new</span> <span class="title class_">Contact</span>(<span class="string">&quot;qinxu&quot;</span>, <span class="string">&quot;https://www.baidu.com/&quot;</span>, <span class="string">&quot;2932162903@qq.com&quot;</span>))</span><br><span class="line">                .version(<span class="string">&quot;0.0.1&quot;</span>)</span><br><span class="line">                .build();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 设置静态资源映射</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> registry</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">addResourceHandlers</span><span class="params">(ResourceHandlerRegistry registry)</span> &#123;</span><br><span class="line">        registry.addResourceHandler(<span class="string">&quot;/doc.html&quot;</span>).addResourceLocations(<span class="string">&quot;classpath:/META-INF/resources/&quot;</span>);</span><br><span class="line">        registry.addResourceHandler(<span class="string">&quot;/webjars/**&quot;</span>).addResourceLocations(<span class="string">&quot;classpath:/META-INF/resources/webjars/&quot;</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>编写完Config，就到Controller，有的人会问，为什么不编写mapper、service、serviceImpl，实际上我们plus已经解决了，你只要实现调用即可，对于基础的CRUD开箱即用。</p>
+<h3 id="Controller层"><a href="#Controller层" class="headerlink" title="Controller层"></a>Controller层</h3><p>这里因为我们考虑的是前后端分离的技术，所以不会使用响应页面的效果，因此我们这里是写接口来实现的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wang.controller;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.baomidou.mybatisplus.extension.plugins.pagination.Page;</span><br><span class="line"><span class="keyword">import</span> com.wang.entity.HospitalSet;</span><br><span class="line"><span class="keyword">import</span> com.wang.service.IHospitalSetService;</span><br><span class="line"><span class="keyword">import</span> com.wang.util.Result;</span><br><span class="line"><span class="keyword">import</span> io.swagger.annotations.Api;</span><br><span class="line"><span class="keyword">import</span> io.swagger.annotations.ApiOperation;</span><br><span class="line"><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.annotation.Resource;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;</span></span><br><span class="line"><span class="comment"> * 医院设置表 前端控制器</span></span><br><span class="line"><span class="comment"> * &lt;/p&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> wang</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span> 2024-06-10</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;admin/hosp/hospitalSet/&quot;)</span></span><br><span class="line"><span class="meta">@Api(tags = &quot;单表增删改查&quot;)</span></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@CrossOrigin</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HospitalSetController</span> &#123;</span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> IHospitalSetService hospitalSetService;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 分页查询</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> pageNumber</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> pageSize</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ApiOperation(&quot;分页查询数据&quot;)</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/getPage/&#123;pageNumber&#125;/&#123;pageSize&#125;&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Result <span class="title function_">getPage</span><span class="params">(<span class="meta">@PathVariable</span> Long pageNumber,<span class="meta">@PathVariable</span> Long pageSize)</span>&#123;</span><br><span class="line">        <span class="comment">// 开启分页</span></span><br><span class="line">        Page&lt;HospitalSet&gt; hospitalSetPage = <span class="keyword">new</span> <span class="title class_">Page</span>&lt;&gt;(pageNumber, pageSize);</span><br><span class="line">        <span class="comment">// 得到分页数据</span></span><br><span class="line">        Page&lt;HospitalSet&gt; page = hospitalSetService.page(hospitalSetPage);</span><br><span class="line">        <span class="keyword">return</span> Result.ok(page);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 删除数据</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> id</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@GetMapping(&quot;/removeById/&#123;id&#125;&quot;)</span></span><br><span class="line">    <span class="meta">@ApiOperation(&quot;删除数据&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Result <span class="title function_">removeById</span><span class="params">(<span class="meta">@PathVariable</span> Long id)</span>&#123;</span><br><span class="line">        log.info(<span class="string">&quot;删除数据:&#123;&#125;&quot;</span>,id);</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">removeById</span> <span class="operator">=</span> hospitalSetService.removeById(id);</span><br><span class="line">        <span class="keyword">if</span> (removeById)&#123;</span><br><span class="line">            log.info(<span class="string">&quot;删除成功！&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            log.info(<span class="string">&quot;删除失败!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Result.ok();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 添加数据</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> hospitalSet</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PostMapping(&quot;/save&quot;)</span></span><br><span class="line">    <span class="meta">@ApiOperation(&quot;添加数据&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Result <span class="title function_">Add</span><span class="params">(<span class="meta">@RequestBody</span> HospitalSet hospitalSet)</span>&#123;</span><br><span class="line">        log.info(<span class="string">&quot;添加数据:&#123;&#125;&quot;</span>,hospitalSet);</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">save</span> <span class="operator">=</span> hospitalSetService.save(hospitalSet);</span><br><span class="line">        <span class="keyword">if</span> (save)&#123;</span><br><span class="line">            log.info(<span class="string">&quot;添加成功！&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            log.info(<span class="string">&quot;添加失败!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Result.ok();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 修改数据</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> hospitalSet</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@PutMapping(&quot;/updateHosp&quot;)</span></span><br><span class="line">    <span class="meta">@ApiOperation(&quot;修改数据&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> Result <span class="title function_">Update</span><span class="params">(<span class="meta">@RequestBody</span> HospitalSet hospitalSet)</span>&#123;</span><br><span class="line">        log.info(<span class="string">&quot;修改数据:&#123;&#125;&quot;</span>,hospitalSet);</span><br><span class="line">        <span class="type">boolean</span> <span class="variable">updateById</span> <span class="operator">=</span> hospitalSetService.updateById(hospitalSet);</span><br><span class="line">        <span class="keyword">if</span> (updateById)&#123;</span><br><span class="line">            log.info(<span class="string">&quot;修改成功！&quot;</span>);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            log.info(<span class="string">&quot;修改失败!&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Result.ok();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里我们是按照前端的接口写好，只需要实现即可。</p>
+<h1 id="前端部分"><a href="#前端部分" class="headerlink" title="前端部分"></a>前端部分</h1><p>前端主要是使用的是Vue，axios、element-ui、vuex.</p>
+<h3 id="前置准备"><a href="#前置准备" class="headerlink" title="前置准备:"></a>前置准备:</h3><ul>
+<li>首先创建好Vue工程，npm导入依赖。</li>
+<li>配置好跨域问题。</li>
+</ul>
+<h3 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">const &#123; defineConfig &#125; = require(&#x27;@vue/cli-service&#x27;)</span><br><span class="line">module.exports = defineConfig(&#123;</span><br><span class="line">  transpileDependencies: true,</span><br><span class="line">  devServer: &#123;</span><br><span class="line">    port: 7070,</span><br><span class="line">    proxy: &#123;</span><br><span class="line">      &#x27;api&#x27;: &#123;</span><br><span class="line">        target: &#x27;http://localhost:8080&#x27;,</span><br><span class="line">        pathRewrite: &#123;</span><br><span class="line">          &#x27;^/api&#x27; : &#x27;&#x27;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="前端首页内容"><a href="#前端首页内容" class="headerlink" title="前端首页内容"></a>前端首页内容</h3><p>这里我直接给代码，基础不好，自己去理解v-bind、v-on等前端的Vue交互，多敲几遍</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;div id=&quot;home&quot;&gt;</span><br><span class="line">    &lt;el-container&gt;</span><br><span class="line">    &lt;el-header&gt;</span><br><span class="line">        &lt;h1&gt;</span><br><span class="line">            医院数据</span><br><span class="line">        &lt;/h1&gt;</span><br><span class="line">    &lt;/el-header&gt;</span><br><span class="line">    &lt;el-button type=&quot;text&quot; @click=&quot;addClass()&quot;&gt;新增医院信息&lt;/el-button&gt;</span><br><span class="line">    &lt;el-dialog :title=&quot;form.title&quot; :visible.sync=&quot;form.dialogFormVisible&quot; width=&quot;30%&quot; :before-close=&quot;handleClose&quot;&gt;</span><br><span class="line">        &lt;el-form :model=&quot;form&quot; ref=&quot;form&quot;&gt;</span><br><span class="line">        &lt;el-form-item label=&quot;医院名称&quot; :label-width=&quot;formLabelWidth&quot; prop=&quot;hosname&quot;&gt;</span><br><span class="line">            &lt;el-input v-model=&quot;form.hosname&quot; autocomplete=&quot;off&quot;&gt;&lt;/el-input&gt;</span><br><span class="line">        &lt;/el-form-item&gt;</span><br><span class="line">        &lt;el-form-item label=&quot;医院编码&quot; :label-width=&quot;formLabelWidth&quot; prop=&quot;hoscode&quot;&gt;</span><br><span class="line">            &lt;el-input v-model=&quot;form.hoscode&quot; autocomplete=&quot;off&quot;&gt;&lt;/el-input&gt;</span><br><span class="line">        &lt;/el-form-item&gt;</span><br><span class="line">        &lt;el-form-item label=&quot;apiUrl基础地址&quot; :label-width=&quot;formLabelWidth&quot; prop=&quot;apiUrl&quot;&gt;</span><br><span class="line">            &lt;el-input v-model=&quot;form.apiUrl&quot; autocomplete=&quot;off&quot;&gt;&lt;/el-input&gt;</span><br><span class="line">        &lt;/el-form-item&gt;</span><br><span class="line">        &lt;el-form-item label=&quot;联系人姓名&quot; :label-width=&quot;formLabelWidth&quot; prop=&quot;contactsName&quot;&gt;</span><br><span class="line">            &lt;el-input v-model=&quot;form.contactsName&quot; autocomplete=&quot;off&quot;&gt;&lt;/el-input&gt;</span><br><span class="line">        &lt;/el-form-item&gt;</span><br><span class="line">        &lt;el-form-item label=&quot;联系人手机&quot; :label-width=&quot;formLabelWidth&quot; prop=&quot;contactsPhone&quot;&gt;</span><br><span class="line">            &lt;el-input v-model=&quot;form.contactsPhone&quot; autocomplete=&quot;off&quot;&gt;&lt;/el-input&gt;</span><br><span class="line">        &lt;/el-form-item&gt;</span><br><span class="line">        &lt;/el-form&gt;</span><br><span class="line">        &lt;span slot=&quot;footer&quot; class=&quot;dialog-footer&quot;&gt;</span><br><span class="line">        &lt;el-button size=&quot;medium&quot; @click=&quot;handleClose&quot;&gt;取 消&lt;/el-button&gt;</span><br><span class="line">        &lt;el-button type=&quot;primary&quot; size=&quot;medium&quot; @click=&quot;submitForm&quot;&gt;确 定&lt;/el-button&gt;</span><br><span class="line">        &lt;el-button v-if=&quot;action != &#x27;edit&#x27;&quot; type=&quot;primary&quot; size=&quot;medium&quot; class=&quot;continue&quot; @click=&quot;submitForm(&#x27;go&#x27;)&quot;&gt;保存并继续添加&lt;/el-button&gt;</span><br><span class="line">        &lt;/span&gt;</span><br><span class="line">    &lt;/el-dialog&gt;</span><br><span class="line">    &lt;el-main&gt;</span><br><span class="line">        &lt;el-table :data=&quot;tablelist&quot; stripe style=&quot;width: 100%&quot;&gt;</span><br><span class="line">        &lt;el-table-column prop=&quot;id&quot; label=&quot;ID&quot;&gt;&lt;/el-table-column&gt;</span><br><span class="line">        &lt;el-table-column prop=&quot;hosname&quot; label=&quot;医院名称&quot;&gt;&lt;/el-table-column&gt;</span><br><span class="line">        &lt;el-table-column prop=&quot;hoscode&quot; label=&quot;医院编号&quot;&gt;&lt;/el-table-column&gt;</span><br><span class="line">        &lt;el-table-column prop=&quot;apiUrl&quot; label=&quot;apiUrl&quot;&gt;&lt;/el-table-column&gt;</span><br><span class="line">        &lt;el-table-column prop=&quot;contactsName&quot; label=&quot;联系人&quot;&gt;&lt;/el-table-column&gt;</span><br><span class="line">        &lt;el-table-column prop=&quot;contactsPhone&quot; label=&quot;联系电话&quot;&gt;&lt;/el-table-column&gt;</span><br><span class="line">        &lt;el-table-column prop=&quot;signKey&quot; label=&quot;签名&quot;&gt;&lt;/el-table-column&gt;</span><br><span class="line">        &lt;el-table-column prop=&quot;status&quot; label=&quot;状态&quot;&gt;&lt;/el-table-column&gt;</span><br><span class="line">        &lt;el-table-column prop=&quot;createTime&quot; label=&quot;创建时间&quot;&gt;&lt;/el-table-column&gt;</span><br><span class="line">        &lt;el-table-column prop=&quot;updateTime&quot; label=&quot;更新时间&quot;&gt;&lt;/el-table-column&gt;</span><br><span class="line">        &lt;el-table-column prop=&quot;isDeleted&quot; label=&quot;逻辑删除&quot;&gt;&lt;/el-table-column&gt;</span><br><span class="line">        &lt;el-table-column label=&quot;操作&quot; width=&quot;160&quot; align=&quot;center&quot;&gt;</span><br><span class="line">            &lt;template slot-scope=&quot;scope&quot;&gt;</span><br><span class="line">            &lt;el-button type=&quot;text&quot; size=&quot;small&quot; class=&quot;blueBug&quot; @click=&quot;editHandle(scope.row)&quot;&gt;修改&lt;/el-button&gt;</span><br><span class="line">            &lt;el-button type=&quot;text&quot; size=&quot;small&quot; class=&quot;delBut non&quot; @click=&quot;deleteHandle(scope.row.id)&quot;&gt;删除&lt;/el-button&gt;</span><br><span class="line">            &lt;/template&gt;</span><br><span class="line">        &lt;/el-table-column&gt;</span><br><span class="line">        &lt;/el-table&gt;</span><br><span class="line">        &lt;!-- 分页 --&gt;</span><br><span class="line">        &lt;el-pagination id=&quot;pagination&quot; class=&quot;tablelist&quot; :page-sizes=&quot;[5, 10, 15, 20]&quot; :page-size=&quot;pageSize&quot; layout=&quot;total, sizes, prev, pager, next, jumper&quot; :total=&quot;total&quot; @size-change=&quot;handleSizeChange&quot; @current-change=&quot;handleCurrentChange&quot;&gt;</span><br><span class="line">        &lt;/el-pagination&gt;</span><br><span class="line">    &lt;/el-main&gt;</span><br><span class="line">    &lt;el-footer&gt;@laowang.com&lt;/el-footer&gt;</span><br><span class="line">    &lt;/el-container&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<p>前端展示已经写好了，我们需要写前后端交互的方法和引用。</p>
+<h3 id="显示页面"><a href="#显示页面" class="headerlink" title="显示页面"></a>显示页面</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">import axios from &#x27;axios&#x27;;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      tablelist: [], //返回当前页数据</span><br><span class="line">      page: 1, // 当前页，默认值为第一页</span><br><span class="line">      pageSize: 5, // 每页5条数据</span><br><span class="line">      total: 0, // 总条数</span><br><span class="line">      action: &#x27;&#x27;,</span><br><span class="line">      rowObj: &#123;&#125;,</span><br><span class="line">      // 表单</span><br><span class="line">      form: &#123;</span><br><span class="line">        hosname: &quot;&quot;,</span><br><span class="line">        hoscode: &quot;&quot;,</span><br><span class="line">        apiUrl: &quot;&quot;,</span><br><span class="line">        contactsName: &quot;&quot;,</span><br><span class="line">        contactsPhone: &quot;&quot;,</span><br><span class="line">        title: &#x27;新增医院信息&#x27;,</span><br><span class="line">        dialogFormVisible: false,</span><br><span class="line">      &#125;,</span><br><span class="line">      formLabelWidth: &#x27;120px&#x27;,</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">   created()&#123;</span><br><span class="line">       </span><br><span class="line">   &#125;,</span><br><span class="line">   methods()&#123;</span><br><span class="line">       </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>这个简单让整个页面暂时活起来，还有数据的引入。</p>
+<h3 id="分页查询方法"><a href="#分页查询方法" class="headerlink" title="分页查询方法"></a>分页查询方法</h3><p>根据的时候我们在前端交互的方法</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">methods: &#123;</span><br><span class="line">	   getPage(page, pageSize) &#123;</span><br><span class="line">	   // axios交互</span><br><span class="line">      axios.get(`api/admin/hosp/hospitalSet/getPage/$&#123;page&#125;/$&#123;pageSize&#125;`)</span><br><span class="line">        .then(res =&gt; &#123;</span><br><span class="line">        // 获取交互结果，没有就报错。</span><br><span class="line">          console.log(res);</span><br><span class="line">          // 将交互的接口传给初始值。</span><br><span class="line">          this.tablelist = res.data.data.records;</span><br><span class="line">          this.total = res.data.data.total;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当我们页面改变的时候，相应的我们要查询的数据库也要改变，指的是</p>
+<p>sql: ‘ select * from table  limit page. pagesize’.</p>
+<p>分页的效果，展示，那我们就需要根据这样子去操作</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">handleSizeChange(newSize) &#123;</span><br><span class="line">this.pageSize = newSize;</span><br><span class="line">this.getPage(this.page, this.pageSize);</span><br><span class="line">&#125;,</span><br><span class="line">handleCurrentChange(newPage) &#123;</span><br><span class="line">    this.page = newPage;</span><br><span class="line">    this.getPage(this.page, this.pageSize);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>这两个方法，就是当我前端改变页数和页码时，后端能够返回相应的数据。</p>
+<p>最后我们需要在created()编写</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">created() &#123;</span><br><span class="line">  this.getPage(this.page, this.pageSize)</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>至此我们前端的数据展示就搞定了。</p>
+<h3 id="删除实现"><a href="#删除实现" class="headerlink" title="删除实现"></a>删除实现</h3><p>查询搞出来了，那么搞删除了，方法如下:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">deleteHandle(id) &#123;</span><br><span class="line">      this.$confirm(&quot;此操作将永久删除该记录，是否继续？&quot;, &#x27;提示&#x27;, &#123;</span><br><span class="line">        confirmButtonText: &#x27;确定&#x27;,</span><br><span class="line">        cancelButtonText: &#x27;取消&#x27;,</span><br><span class="line">        type: &#x27;warning&#x27;</span><br><span class="line">      &#125;).then(() =&gt; &#123;</span><br><span class="line">        axios.get(`api/admin/hosp/hospitalSet/removeById/$&#123;id&#125;`)</span><br><span class="line">          .then(res =&gt; &#123;</span><br><span class="line">            if (res.data.code === 200) &#123;</span><br><span class="line">              this.$message(&#123;</span><br><span class="line">                type: &#x27;success&#x27;,</span><br><span class="line">                message: &#x27;删除成功！&#x27;</span><br><span class="line">              &#125;);</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">              this.$message(&#123;</span><br><span class="line">                type: &#x27;error&#x27;,</span><br><span class="line">                message: &#x27;删除失败！&#x27;</span><br><span class="line">              &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">            // 更新表格数据</span><br><span class="line">            this.getPage(this.page, this.pageSize);</span><br><span class="line">          &#125;)</span><br><span class="line">        // 捕获取消异常的报错</span><br><span class="line">      &#125;).catch(() =&gt; &#123;</span><br><span class="line">        this.$message(&#123;</span><br><span class="line">          type: &#x27;info&#x27;,</span><br><span class="line">          message: &#x27;已取消删除&#x27;</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>解释一下: 这里设置了交互过程，当我们点击删除时，会有交互界面，如果点击确定会请求我们的后端接口，然后就删除了，如果取消，我们就接受异常返回信息，取消删除，每一次操作我们都需要进行更新表格数据，保证了前端数据和数据的一致性。</p>
+<h3 id="添加实现"><a href="#添加实现" class="headerlink" title="添加实现"></a>添加实现</h3><p>添加和编辑共用一个页面，主要通过action来进行判断。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">// 添加页面展示</span><br><span class="line">addClass() &#123;</span><br><span class="line">  this.form.title = &#x27;添加医院设置信息&#x27;;</span><br><span class="line">  this.action = &#x27;add&#x27;;</span><br><span class="line">  this.resetForm();</span><br><span class="line">  this.form.dialogFormVisible = true;</span><br><span class="line">&#125;,</span><br><span class="line">// 关闭弹窗</span><br><span class="line">handleClose() &#123;</span><br><span class="line">  this.form.dialogFormVisible = false;</span><br><span class="line">&#125;,</span><br><span class="line">// 根据动作类型决定是否增加或编辑</span><br><span class="line">submitForm(actionType) &#123;</span><br><span class="line">  if (this.action == &quot;add&quot;) &#123;</span><br><span class="line">    this.hospSetAdd(this.form, actionType);</span><br><span class="line">  &#125; else &#123;</span><br><span class="line">    this.hospSetEdit(this.form);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line">// 发送新增请求</span><br><span class="line">hospSetAdd(form, actionType) &#123;</span><br><span class="line">  console.log(form);</span><br><span class="line">  axios.post(&#x27;api/admin/hosp/hospitalSet/save&#x27;, &#123;</span><br><span class="line">    hosname: form.hosname,</span><br><span class="line">    hoscode: form.hoscode,</span><br><span class="line">    apiUrl: form.apiUrl,</span><br><span class="line">    contactsName: form.contactsName,</span><br><span class="line">    contactsPhone: form.contactsPhone</span><br><span class="line">  &#125;).then(res =&gt; &#123;</span><br><span class="line">    if (actionType !== &#x27;go&#x27;) &#123;</span><br><span class="line">      this.form.dialogFormVisible = false;</span><br><span class="line">    &#125;</span><br><span class="line">    this.$message(&#123;</span><br><span class="line">      message: &#x27;新增医院设置信息成功！&#x27;,</span><br><span class="line">      type: &#x27;success&#x27;</span><br><span class="line">    &#125;);</span><br><span class="line">    this.resetForm();</span><br><span class="line">    this.getPage(this.page, this.pageSize);</span><br><span class="line">    console.log(res);</span><br><span class="line">  &#125;).catch(error =&gt; &#123;</span><br><span class="line">    console.log(error);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="编辑实现"><a href="#编辑实现" class="headerlink" title="编辑实现"></a>编辑实现</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">  // 修改页面</span><br><span class="line">  editHandle(dat) &#123;</span><br><span class="line">    this.form.title = &#x27;修改医院设置信息&#x27;;</span><br><span class="line">    this.action = &#x27;edit&#x27;;</span><br><span class="line">    this.rowObj = dat;</span><br><span class="line">    this.form.hosname = dat.hosname;</span><br><span class="line">    this.form.hoscode = dat.hoscode;</span><br><span class="line">    this.form.apiUrl = dat.apiUrl;</span><br><span class="line">    this.form.contactsName = dat.contactsName;</span><br><span class="line">    this.form.contactsPhone = dat.contactsPhone;</span><br><span class="line">    this.form.dialogFormVisible = true;</span><br><span class="line">  &#125;,</span><br><span class="line">  // 发送修改请求</span><br><span class="line">  hospSetEdit(form) &#123;</span><br><span class="line">    console.info(form);</span><br><span class="line">    axios.put(&#x27;api/admin/hosp/hospitalSet/updateHosp&#x27;, &#123;</span><br><span class="line">      id: this.rowObj.id,</span><br><span class="line">      hosname: form.hosname,</span><br><span class="line">      hoscode: form.hoscode,</span><br><span class="line">      apiUrl: form.apiUrl,</span><br><span class="line">      contactsName: form.contactsName,</span><br><span class="line">      contactsPhone: form.contactsPhone</span><br><span class="line">    &#125;).then(() =&gt; &#123;</span><br><span class="line">      this.form.dialogFormVisible = false;</span><br><span class="line">      this.$message(&#123;</span><br><span class="line">        message: &#x27;修改医院设置信息成功！&#x27;,</span><br><span class="line">        type: &#x27;success&#x27;</span><br><span class="line">      &#125;);</span><br><span class="line">      this.handleClose();</span><br><span class="line">      this.getPage(this.page, this.pageSize);</span><br><span class="line">      // console.info(res)</span><br><span class="line">    &#125;).catch(error =&gt; &#123;</span><br><span class="line">      console.info(error);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;,</span><br><span class="line">  // 重置表单</span><br><span class="line">  resetForm() &#123;</span><br><span class="line">    this.form.hosname = &quot;&quot;;</span><br><span class="line">    this.form.hoscode = &quot;&quot;;</span><br><span class="line">    this.form.apiUrl = &quot;&quot;;</span><br><span class="line">    this.form.contactsName = &quot;&quot;;</span><br><span class="line">    this.form.contactsPhone = &quot;&quot;;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>编辑其实也是，加表单的数据回显前端，然后改一下文字啥的最后需要重置表单。</p>
+<p><font color='red'><strong>这里有个细节，在我们无论是添加还是修改，都需要重置表单，不然表单出现异常</strong>。</font></p>
+<p>页面效果展示:</p>
+<p>​	<img src="/2025/01/16/Springboot-MybatisPlus-Vue-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/image-20240611110555486.png" class="" title="image-20240611110555486"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<img src="/2025/01/16/Springboot-MybatisPlus-Vue-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/image-20240611110605599.png" class="" title="image-20240611110605599"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'>
+
+<img src="/2025/01/16/Springboot-MybatisPlus-Vue-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/image-20240611110613190.png" class="" title="image-20240611110613190"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'>
+
+</article>
+    
+    
+
+<ul class="trm-post-copyright">
+    <li class="trm-post-copyright-author">
+        <strong>本文作者：</strong>
+        Qinx Xu
+    </li>
+    <li class="trm-post-copyright-link">
+        <strong>本文链接：</strong>
+        <a id="original-link" href="https://karel-cyber.github.io/2025/01/16/Springboot-MybatisPlus-Vue-前后端分离/" title="Springboot+MybatisPlus+Vue 前后端分离">https://karel-cyber.github.io/2025/01/16/Springboot-MybatisPlus-Vue-前后端分离/</a>
+    </li>
+    <li class="trm-post-copyright-license">
+        <strong>版权声明：</strong>
+        本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 ">CC BY-NC-SA 4.0</a> 许可协议。
+    </li>
+</ul>
+
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/2025/01/16/npm%E4%B8%8B%E8%BD%BD%E8%BF%87%E6%85%A2%E7%9A%84%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/block.jpg">
+                </span>
+                <h6 class="trm-op-title">npm下载过慢的问题解决</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>25/01/16</li>
+                <li>10:54</li>
+                <li>npm</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-footer-card trm-scroll-animation">
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>© 2024 - 2025</span>
+            <span class="footer-separator"data-separator=" · "></span>
+            <span class="trm-accent-color">秦旭</span>
+        </div>
+    
+
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+    
+        <div class="trm-footer-item">
+            西北望，射天狼
+        </div>
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        目录导航
+				<span id="post-toc-top">
+					置顶
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-1" title="Springboot+MybatisPlus+Vue 前后端分离"><a rel="nofollow" class="trm-toc-link" href="#Springboot-MybatisPlus-Vue-前后端分离"><span class="trm-toc-text">Springboot+MybatisPlus+Vue 前后端分离</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="前置准备："><a rel="nofollow" class="trm-toc-link" href="#前置准备："><span class="trm-toc-text">前置准备：</span></a></li><li class="trm-toc-item trm-toc-level-3" title="数据库："><a rel="nofollow" class="trm-toc-link" href="#数据库："><span class="trm-toc-text">数据库：</span></a></li><li class="trm-toc-item trm-toc-level-3" title="pom.xml"><a rel="nofollow" class="trm-toc-link" href="#pom-xml"><span class="trm-toc-text">pom.xml</span></a></li><li class="trm-toc-item trm-toc-level-3" title="application.yml"><a rel="nofollow" class="trm-toc-link" href="#application-yml"><span class="trm-toc-text">application.yml</span></a></li><li class="trm-toc-item trm-toc-level-3" title="application-dev.yml"><a rel="nofollow" class="trm-toc-link" href="#application-dev-yml"><span class="trm-toc-text">application-dev.yml</span></a></li><li class="trm-toc-item trm-toc-level-3" title="Mybatis-plus的CodeGenerator"><a rel="nofollow" class="trm-toc-link" href="#Mybatis-plus的CodeGenerator"><span class="trm-toc-text">Mybatis-plus的CodeGenerator</span></a></li><li class="trm-toc-item trm-toc-level-3" title="实体类生成细节"><a rel="nofollow" class="trm-toc-link" href="#实体类生成细节"><span class="trm-toc-text">实体类生成细节</span></a></li><li class="trm-toc-item trm-toc-level-3" title="Config层"><a rel="nofollow" class="trm-toc-link" href="#Config层"><span class="trm-toc-text">Config层</span></a></li><li class="trm-toc-item trm-toc-level-3" title="Controller层"><a rel="nofollow" class="trm-toc-link" href="#Controller层"><span class="trm-toc-text">Controller层</span></a></li></ol></li></ol></li><li class="trm-toc-item trm-toc-level-1" title="前端部分"><a rel="nofollow" class="trm-toc-link" href="#前端部分"><span class="trm-toc-text">前端部分</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="前置准备:"><a rel="nofollow" class="trm-toc-link" href="#前置准备"><span class="trm-toc-text">前置准备:</span></a></li><li class="trm-toc-item trm-toc-level-3" title="跨域"><a rel="nofollow" class="trm-toc-link" href="#跨域"><span class="trm-toc-text">跨域</span></a></li><li class="trm-toc-item trm-toc-level-3" title="前端首页内容"><a rel="nofollow" class="trm-toc-link" href="#前端首页内容"><span class="trm-toc-text">前端首页内容</span></a></li><li class="trm-toc-item trm-toc-level-3" title="显示页面"><a rel="nofollow" class="trm-toc-link" href="#显示页面"><span class="trm-toc-text">显示页面</span></a></li><li class="trm-toc-item trm-toc-level-3" title="分页查询方法"><a rel="nofollow" class="trm-toc-link" href="#分页查询方法"><span class="trm-toc-text">分页查询方法</span></a></li><li class="trm-toc-item trm-toc-level-3" title="删除实现"><a rel="nofollow" class="trm-toc-link" href="#删除实现"><span class="trm-toc-text">删除实现</span></a></li><li class="trm-toc-item trm-toc-level-3" title="添加实现"><a rel="nofollow" class="trm-toc-link" href="#添加实现"><span class="trm-toc-text">添加实现</span></a></li><li class="trm-toc-item trm-toc-level-3" title="编辑实现"><a rel="nofollow" class="trm-toc-link" href="#编辑实现"><span class="trm-toc-text">编辑实现</span></a></li></ol></li></ol></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="目录">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="单栏和双栏切换" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+    <div class="trm-search-popup">
+        <div class="trm-search-wrapper">
+            <div class="form trm-search-form">
+                <div class="trm-search-input-icon">
+                    <i class="iconfont fas fa-search"></i>
+                </div>
+                <input class="trm-search-input" type="text" placeholder="搜索文章...">
+                <div class="trm-search-btn-close">
+                    <i class="iconfont fas fa-times"></i>
+                </div>
+            </div>
+            <div class="trm-search-result-container">
+                <div class="trm-search-empty">
+                    请输入关键词进行搜索
+                </div>
+            </div>
+            <div class="trm-search-footer">
+                <div class="trm-search-stats"></div>
+                <ul class="trm-search-commands">
+                    <li>
+                        <kbd class="command-palette-commands-key">
+                            <svg width="15" height="15" aria-label="Escape key" role="img">
+                                <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="1.2">
+                                    <path
+                                        d="M13.6167 8.936c-.1065.3583-.6883.962-1.4875.962-.7993 0-1.653-.9165-1.653-2.1258v-.5678c0-1.2548.7896-2.1016 1.653-2.1016.8634 0 1.3601.4778 1.4875 1.0724M9 6c-.1352-.4735-.7506-.9219-1.46-.8972-.7092.0246-1.344.57-1.344 1.2166s.4198.8812 1.3445.9805C8.465 7.3992 8.968 7.9337 9 8.5c.032.5663-.454 1.398-1.4595 1.398C6.6593 9.898 6 9 5.963 8.4851m-1.4748.5368c-.2635.5941-.8099.876-1.5443.876s-1.7073-.6248-1.7073-2.204v-.4603c0-1.0416.721-2.131 1.7073-2.131.9864 0 1.6425 1.031 1.5443 2.2492h-2.956">
+                                    </path>
+                                </g>
+                            </svg>
+                        </kbd>
+                        <span class="command-palette-Label">to close</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+  <!-- Plugin -->
+
+
+
+
+    
+<script src="https://unpkg.com/swup@2.0.19/dist/swup.min.js"></script>
+
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.2.4"></script>
+    
+
+    
+        
+<script src="https://unpkg.com/hexo-generator-searchdb@1.4.0/dist/search.js"></script>
+
+        <script src="/js/plugins/local_search.js?v=2.2.4"></script>
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+			<script src="/js/plugins/danmu.js?v=2.2.4"></script>
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+    <script data-swup-reload-script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+
+<script id="async-script" src="/js/main.js?v=2.2.4"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>

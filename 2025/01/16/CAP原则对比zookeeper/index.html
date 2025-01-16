@@ -7,18 +7,23 @@
 <meta name="full-screen" content="yes">
 <meta name="theme-color" content="#317EFB" />
 <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="https://karel-cyber.github.io/about/index.html">
+<meta name="description" content="CAP原则对比zookeeper关系型数据库RDBMS（MySQL、Oracle、sqlServer）：遵循ACID非关系型数据库NoSQL（Redis、mongdb）：遵循CAP ACIDA（Atomicity）：原子性C（Consistency）：一致性I（Isolation）：隔离性D（Durability）：持久性 CAPC（Consistency）：强一致性A（Availablity）：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CAP原则对比zookeeper">
+<meta property="og:url" content="https://karel-cyber.github.io/2025/01/16/CAP%E5%8E%9F%E5%88%99%E5%AF%B9%E6%AF%94zookeeper/index.html">
 <meta property="og:site_name" content="秦旭.Blog">
+<meta property="og:description" content="CAP原则对比zookeeper关系型数据库RDBMS（MySQL、Oracle、sqlServer）：遵循ACID非关系型数据库NoSQL（Redis、mongdb）：遵循CAP ACIDA（Atomicity）：原子性C（Consistency）：一致性I（Isolation）：隔离性D（Durability）：持久性 CAPC（Consistency）：强一致性A（Availablity）：">
 <meta property="og:locale">
-<meta property="article:published_time" content="2025-01-15T15:16:22.000Z">
-<meta property="article:modified_time" content="2025-01-15T15:40:14.852Z">
+<meta property="og:image" content="https://karel-cyber.github.io/img/404.jpg">
+<meta property="article:published_time" content="2025-01-16T02:53:10.000Z">
+<meta property="article:modified_time" content="2025-01-16T03:00:15.015Z">
 <meta property="article:author" content="Qinx Xu">
+<meta property="article:tag" content="技术-理论">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://karel-cyber.github.io/img/404.jpg">
 
 
-<title >关于</title>
+<title >CAP原则对比zookeeper</title>
 
 <!-- Favicon -->
 
@@ -57,7 +62,7 @@
 
 <!-- Variable -->
 <script>window.ASYNC_CONFIG = {"hostname":"karel-cyber.github.io","author":"Qinx Xu","root":"/","typed_text":["Karel-cyber"],"theme_version":"2.2.4","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":null,"icon16":"log.svg","icon32":"log.svg","apple_touch_icon":null,"webmanifest":null,"visibilitychange":true,"hidden":"failure.ico","show_text":"(/≧▽≦/)咦！又好了！","hide_text":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":true,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"mac","height_limit":200},"toc":{"post_title":true},"live_time":{"start_time":"2024/01/12 17:00:00","prefix":"博客已萌萌哒运行 undefined 天"},"danmu":{"enable":true,"el":".trm-banner","avatar":true,"delayRange":5000,"speed":80},"covers":["/img/block.jpg","https://img2.wallspic.com/previews/7/6/8/1/7/171867/171867-wu_kong-chao_ji_sai_ya_ren-sai_ya_ren-zamasu-long_zhu-500x.jpg","https://img3.wallspic.com/previews/2/0/1/8/6/168102/168102-yi_shu-ka_tong-mian_bu_biao_qing-kuai_le_de-ji_qie-500x.jpg","https://img2.wallspic.com/previews/2/6/4/3/7/173462/173462-qi_fen-zi_se_de-zi_ran_jing_guan-yu_hui-de_ping_xian-500x.jpg","https://img2.wallspic.com/previews/3/3/9/1/3/131933/131933-mo_xing-xiao_jie-huang_se_de-nu_hai-fa_xing-500x.jpg","https://img1.wallspic.com/previews/8/3/4/6/2/126438/126438-wei_lai_zhu_yi-shu_ma_yi_shu-jie_duan-zi_ben_shi-yi_shu-500x.jpg","https://img2.wallspic.com/previews/0/1/5/0/7/170510/170510-guang-azure-zi_se_de-zi_ran_huan_jing-zi_ran_jing_guan-500x.jpg","https://img2.wallspic.com/previews/3/6/9/6/5/156963/156963-yi_shu-qi_fen-yu_hui-shou_shi-ren_men_zai_zi_ran_jie-500x.jpg","https://img1.wallspic.com/previews/0/9/3/5/6/165390/165390-qi_fen-zi_se_de-zi_ran_huan_jing-zi_ran_jing_guan-tian_wen_xue_dui_xiang-500x.jpg","https://img3.wallspic.com/previews/2/8/6/1/7/171682/171682-yi_kuai-xing_zhi-ye_ti-yi_shu-shui_xia-500x.jpg","https://img1.wallspic.com/previews/7/1/9/9/89917/89917-bo_xi_ta_nuo-an_zhuang_de_feng_jing-cheng_shi-suo_lun_tuo-shan_zhan-500x.jpg","https://img1.wallspic.com/previews/6/2/3/5/6/165326/165326-pang_ke2077-pang_ke-qi_fen-xing_zhi-zi_se_de-500x.jpg","https://img2.wallspic.com/previews/8/9/4/5/6/165498/165498-ka_tong-tao-pin_hong_se-zhang_zhang_de_tou_fa-ji_qie-500x.jpg","https://img3.wallspic.com/previews/5/7/4/2/7/172475/172475-yi_shu-tao-tou_fa-ka_tong-500x.jpg","https://img2.wallspic.com/previews/5/0/9/0/70905/70905-hai_yang-ma_er_dai_fu-tian_kong-du_jia_cun-huan_jiao-500x.jpg","https://img3.wallspic.com/previews/4/3/4/8/6/168434/168434-xing_zhi-zi_ran_jing_guan-dan_huang-shui_dao-zhi_bei-500x.jpg","https://img2.wallspic.com/previews/6/5/4/5/6/165456/165456-giy_fu_gang-e_mo_sha_shoukimetsu_no_yaiba-shan_zi_de_yi_shu-zi_se_de-dian_lan_se_de-500x.jpg","https://img1.wallspic.com/previews/5/4/0/4/7/174045/174045-jian_ying-qi_fen-ren_men_zai_zi_ran_jie-tian_wen_xue_dui_xiang-yi_shu-500x.jpg","https://img1.wallspic.com/previews/9/3/1/6/5/156139/156139-feng_jing_hua-yi_shu-shu_ma_yi_shu-qi_fen-sheng_tai_qu-500x.jpg","https://img2.wallspic.com/previews/7/6/4/5/7/175467/175467-wo_de_xue_shu_jie_de_ying_xiong-tao-yi_shu-ka_tong-azure-500x.jpg","https://img1.wallspic.com/previews/3/7/0/0/7/170073/170073-liang_ge_ling-ka_tong-shou_shi-chuang_zao_xing_de_yi_shu-hong_se_de-500x.jpg","https://img1.wallspic.com/previews/1/8/3/6/6/166381/166381-shi_zi-xin_ba-bai_se_shi_zi-hu_xu-mao_ke-500x.jpg","https://img3.wallspic.com/previews/4/2/2/3/7/173224/173224-ri_luo-shui_zi_yuan-qi_fen-yu_hui-zi_se_de-500x.jpg","https://img1.wallspic.com/previews/7/5/7/9/6/169757/169757-ji_bo_li_de_bo_wu_guan-zi_ran_jing_guan-yi_shu-ji_yun-500x.jpg","https://img1.wallspic.com/previews/5/2/0/6/7/176025/176025-qi_fen-tian_wen_xue_dui_xiang-yi_shu-dian_lan_se_de-yuan_quan-500x.jpg","https://img3.wallspic.com/previews/6/5/8/1/4/141856/141856-hen_ku_de-hui_hua-yu_yan_jing_tou-zhai_nan-tu_xing_she_ji-500x.jpg","https://img1.wallspic.com/previews/2/1/6/5/6/165612/165612-kimetsu_no_yaiba-e_mo_sha_shoukimetsu_no_yaiba-tao-tou_fa-wai_tao-500x.jpg","https://img3.wallspic.com/previews/5/1/0/2/4/142015/142015-feng_ge-ka_ka_xi_qi_mu-huo_ying_ren_zhe-tu_xing_she_ji-shi_jue_yi_shu-500x.jpg","https://img1.wallspic.com/previews/8/8/7/8/5/158788/158788-e_mo_sha_shoukimetsu_no_yaiba-shnen_man_hua-tao-ka_tong-azure-500x.jpg"],"creative_commons":{"license":"by-nc-sa","language":"deed.zh-hans"},"search":{"enable":true,"type":"local","href":"https://www.google.com/search?q=site:","domain":null,"preload":true,"trigger":"auto"}};</script>
-<script id="async-page-config">window.PAGE_CONFIG = {"isPost":false,"isHome":false,"postUpdate":"2025-01-15 23:40:14"};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2025-01-16 11:00:15"};</script>
 
 <!-- Theme mode css -->
 <link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.2.4" id="trm-switch-style">
@@ -166,7 +171,7 @@
                 
             </li>
             
-            <li class="menu-item-has-children current-menu-item">
+            <li class="menu-item-has-children ">
                 <a  href="/about/" target="">
                     关于
                 </a>
@@ -218,7 +223,7 @@
     <div class="trm-banner">
     
     <!-- banner cover -->
-    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="https://img2.wallspic.com/previews/2/6/4/3/7/173462/173462-qi_fen-zi_se_de-zi_ran_jing_guan-yu_hui-de_ping_xian-500x.jpg">
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="/img/banner.png">
     <!-- banner cover end -->
     
 
@@ -234,10 +239,10 @@
                     <!-- banner title -->
                     <div class="trm-banner-text ">
                         <div class="trm-label trm-mb-20">
-                            About me
+                            NEWS LETTER
                         </div>
                         <h1 class="trm-mb-30 trm-hsmb-font">
-                            醉后不知天在水，<br>满船清梦压星河。
+                            CAP原则对比zookeeper
                         </h1>
 
                         
@@ -247,7 +252,7 @@
                                 </li>
                                 <li>
                                     <span>
-                                        about
+                                        2025
                                     </span>
                                 </li>
                             </ul>
@@ -357,66 +362,90 @@
             
             <div class="trm-page-content col-lg-8">
                 <div id="trm-content" class="trm-content">
-                    
-
-
-	
-
-
-<div class="row trm-scroll-animation" style="margin-bottom: var(--card-bottom-card);">
-	<div class="col-lg-12">
-			<blockquote>
-					大写着失败的人生# 标题
-			</blockquote>
-	</div>
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            01/16
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            10:53
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Qinx Xu
+        </div>
+    </div>
 </div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h3 id="CAP原则对比zookeeper"><a href="#CAP原则对比zookeeper" class="headerlink" title="CAP原则对比zookeeper"></a>CAP原则对比zookeeper</h3><p>关系型数据库RDBMS（MySQL、Oracle、sqlServer）：遵循ACID<br>非关系型数据库NoSQL（Redis、mongdb）：遵循CAP</p>
+<h4 id="ACID"><a href="#ACID" class="headerlink" title="ACID"></a>ACID</h4><p>A（Atomicity）：原子性<br>C（Consistency）：一致性<br>I（Isolation）：隔离性<br>D（Durability）：持久性</p>
+<h4 id="CAP"><a href="#CAP" class="headerlink" title="CAP"></a>CAP</h4><p>C（Consistency）：强一致性<br>A（Availablity）：可用性<br>P（Partition tolerance）：分区容错性<br>在分布式系统中，这三个原则最多满足两个</p>
+<img src="/2025/01/16/CAP%E5%8E%9F%E5%88%99%E5%AF%B9%E6%AF%94zookeeper/959658-20200210235524104-1631200738.png" class="" title="img"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'>
+
+<h4 id="CAP的核心"><a href="#CAP的核心" class="headerlink" title="CAP的核心"></a>CAP的核心</h4><p>一个分布式系统不可能同时很好的满足CAP这三个需求<br>所以根据CAP原理，将NoSQL数据库分为了满足CA原则，满足CP原则和满足AP原则三大类<br>CA：单点集群，满足一致性 ，可用性的系统，可扩展性较差<br>CP：满足一致性、分区容错性的系统，性能不高<br>AP：满足可用性，分区容错性的系统，对一致性要求较低<br>Eureka和Zookeeper的区别<br>因为分区容错性P在分布式系统中是必须要保证的，所以只能在CP、AP之中权衡</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="Zookeeper满足的是CP："><a href="#Zookeeper满足的是CP：" class="headerlink" title="Zookeeper满足的是CP："></a>Zookeeper满足的是CP：</h3><h4 id="Zookeeper满足CP原则"><a href="#Zookeeper满足CP原则" class="headerlink" title="Zookeeper满足CP原则"></a>Zookeeper满足CP原则</h4><p>当向注册中心查询服务列表时，我们可以容忍注册中心返回的是几分钟以前的注册信息，但不能接收服务直接宕掉不可用。也就是说，服务注册功能对可用性的要求要高于一致性。但是Zookeeper会出现一种情况，当master节点因为网络故障与其他节点失去联系时，剩余节点会进行leader选举。但是由于leader选举时间太长（30s~120s），而且整个选举期间Zookeeper集群处于不可用状态，这就导致在选举期间注册服务是瘫痪的，在云部署情况下，因为网络问题使得Zookeeper集群失去master节点是较大概率发生的时间，虽然最终服务能全部恢复，但是过长的选举时间导致注册服务长时间不可用是难以容忍的。</p>
+<h3 id="Eureka满足的是AP"><a href="#Eureka满足的是AP" class="headerlink" title="Eureka满足的是AP"></a>Eureka满足的是AP</h3><h4 id="Eureka满足AP原则："><a href="#Eureka满足AP原则：" class="headerlink" title="Eureka满足AP原则："></a>Eureka满足AP原则：</h4><p>Eureka在设计时就优先保证可用性。Eureka的每个节点都是平等的，几个节点挂掉不会影响正常节点的工作，剩余的节点仍然可以提供注册和服务。而Eureka的客户端在向某个Eureka注册时，如果发现连接失败，则会自动切换至其他节点，只要一台Eureka还在，就能保证注册服务的可用性，只不过查到的可能不是最新消息，而且Eureka还有自我保护机制，如果15分钟内超过85%节点没有传递正常心跳。那么Eureka就认为客户端与注册中心出现网络故障，此时：</p>
+<p>Eureke不再从注册列表中移除因为长时间没收到心跳而应该移除的服务<br>Eureka仍然能接受新服务的注册和查询请求，但是不会被同步到其他节点上（即保证当前节点依然可用）<br>当网络稳定时，其他节点恢复，当前实例新的注册信息会被同步到其他节点中<br>Eureka可以很好的应对因为网络故障导致部分节点失去联系的情况</p>
+
+</article>
+    
+    
+
+<ul class="trm-post-copyright">
+    <li class="trm-post-copyright-author">
+        <strong>本文作者：</strong>
+        Qinx Xu
+    </li>
+    <li class="trm-post-copyright-link">
+        <strong>本文链接：</strong>
+        <a id="original-link" href="https://karel-cyber.github.io/2025/01/16/CAP原则对比zookeeper/" title="CAP原则对比zookeeper">https://karel-cyber.github.io/2025/01/16/CAP原则对比zookeeper/</a>
+    </li>
+    <li class="trm-post-copyright-license">
+        <strong>版权声明：</strong>
+        本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 ">CC BY-NC-SA 4.0</a> 许可协议。
+    </li>
+</ul>
 
 
-
-<div class="row trm-scroll-animation" >
-	<div class="col-lg-12">
-			<h5 class="trm-title-with-divider">
-					作者
-					<span data-number="01"></span>
-			</h5>
-			<div class="trm-card trm-contrast trm-active-el" >
-					受不了一线实习开发的小白，选择回家种田。
-			</div>
-	</div>
 </div>
-
-
-
-<div class="row trm-scroll-animation" >
-	<div class="col-lg-12">
-			<h5 class="trm-title-with-divider">
-					博客
-					<span data-number="02"></span>
-			</h5>
-			<div class="trm-card trm-active-el">
-					本Blog为记录而生，无任何商业用途，只想着无聊时写点东西，让身体觉得自己还活着。
-			</div>
-	</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/2025/01/16/JAVA%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/block.jpg">
+                </span>
+                <h6 class="trm-op-title">JAVA多线程学习</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>25/01/16</li>
+                <li>10:54</li>
+                <li>Java</li>
+            </ul>
+        </div>
+    </div>
 </div>
-
-
-
-<div class="row trm-scroll-animation" >
-	<div class="col-lg-12">
-			<h5 class="trm-title-with-divider">
-					隐私权及评论
-					<span data-number="03"></span>
-			</h5>
-			<div class="trm-card trm-active-el">
-					文章仅供参考，不可盗取，如有侵权相关，请联系我的Email。
-			</div>
-	</div>
+    
+    
 </div>
-
-
-
-
-
 
     
 
@@ -460,9 +489,29 @@
 
             
 
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        目录导航
+				<span id="post-toc-top">
+					置顶
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-3" title="CAP原则对比zookeeper"><a rel="nofollow" class="trm-toc-link" href="#CAP原则对比zookeeper"><span class="trm-toc-text">CAP原则对比zookeeper</span></a></li><li class="trm-toc-item trm-toc-level-3" title=""><a class="trm-toc-link"><span class="trm-toc-text"></span></a></li><li class="trm-toc-item trm-toc-level-3" title="Zookeeper满足的是CP："><a rel="nofollow" class="trm-toc-link" href="#Zookeeper满足的是CP："><span class="trm-toc-text">Zookeeper满足的是CP：</span></a></li><li class="trm-toc-item trm-toc-level-3" title="Eureka满足的是AP"><a rel="nofollow" class="trm-toc-link" href="#Eureka满足的是AP"><span class="trm-toc-text">Eureka满足的是AP</span></a></li></ol>
+      </div>
+    </div>
+
             
 <div class="trm-fixed-container">
     
+        <div class="trm-fixed-btn post-toc-btn" data-title="目录">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
     
     
         <div class="trm-fixed-btn hidden-md" data-title="单栏和双栏切换" onclick="asyncFun.switchSingleColumn()">
