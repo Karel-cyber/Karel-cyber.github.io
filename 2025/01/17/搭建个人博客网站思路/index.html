@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="x5-fullscreen" content="true">
+<meta name="full-screen" content="yes">
+<meta name="theme-color" content="#317EFB" />
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" name="viewport">
+<meta name="description" content="适用人群： 了解并部署过 Hexo 的朋友 对将 Hexo 部署到服务器上感兴趣的同学 有一定 Linux 基础，并能熟练使用 Linux 系统的用户 玩过 Git，具备一定的基础和使用经验  部署 Hexo 的两种方法第一种：本地部署 HexoHexo 是一个轻量级的博客框架，提供多种主题风格，可以省去我们很多建站时的脑力劳动，提高工作效率。本地部署 Hexo 相对简便，主要环境需求是 Git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="搭建个人博客网站思路">
+<meta property="og:url" content="https://karel-cyber.github.io/2025/01/17/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%80%9D%E8%B7%AF/index.html">
+<meta property="og:site_name" content="秦旭.Blog">
+<meta property="og:description" content="适用人群： 了解并部署过 Hexo 的朋友 对将 Hexo 部署到服务器上感兴趣的同学 有一定 Linux 基础，并能熟练使用 Linux 系统的用户 玩过 Git，具备一定的基础和使用经验  部署 Hexo 的两种方法第一种：本地部署 HexoHexo 是一个轻量级的博客框架，提供多种主题风格，可以省去我们很多建站时的脑力劳动，提高工作效率。本地部署 Hexo 相对简便，主要环境需求是 Git">
+<meta property="og:locale">
+<meta property="og:image" content="https://karel-cyber.github.io/img/404.jpg">
+<meta property="og:image" content="https://karel-cyber.github.io/img/404.jpg">
+<meta property="og:image" content="https://karel-cyber.github.io/img/404.jpg">
+<meta property="og:image" content="https://karel-cyber.github.io/img/404.jpg">
+<meta property="og:image" content="https://karel-cyber.github.io/img/404.jpg">
+<meta property="og:image" content="https://karel-cyber.github.io/img/404.jpg">
+<meta property="article:published_time" content="2025-01-17T03:44:28.000Z">
+<meta property="article:modified_time" content="2025-01-17T05:57:53.938Z">
+<meta property="article:author" content="Qinx Xu">
+<meta property="article:tag" content="博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://karel-cyber.github.io/img/404.jpg">
+
+
+<title >搭建个人博客网站思路</title>
+
+<!-- Favicon -->
+
+    <link href='/log.svg?v=2.2.4' rel='icon' type='image/png' sizes='16x16' ></link>
+
+
+    <link href='/log.svg?v=2.2.4' rel='icon' type='image/png' sizes='32x32' ></link>
+
+
+
+
+<!-- Plugin -->
+
+
+
+
+    
+<link rel="stylesheet" href="/css/plugins/bootstrap.row.css">
+
+    
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.css">
+
+    
+    
+
+
+
+
+<!-- Icon -->
+
+    
+<link rel="stylesheet" href="/css/plugins/font-awesome.min.css">
+
+
+
+
+<!-- Variable -->
+<script>window.ASYNC_CONFIG = {"hostname":"karel-cyber.github.io","author":"Qinx Xu","root":"/","typed_text":["Karel-cyber"],"theme_version":"2.2.4","theme":{"switch":true,"default":"style-light"},"favicon":{"logo":null,"icon16":"log.svg","icon32":"log.svg","apple_touch_icon":null,"webmanifest":null,"visibilitychange":true,"hidden":"failure.ico","show_text":"(/≧▽≦/)咦！又好了！","hide_text":"(●—●)喔哟，崩溃啦！"},"i18n":{"placeholder":"搜索文章...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）","author":"本文作者：","copyright_link":"本文链接：","copyright_license_title":"版权声明：","copyright_license_content":"本博客所有文章除特别声明外，均默认采用 undefined 许可协议。","copy_success":"复制成功","copy_failure":"复制失败","open_read_mode":"进入阅读模式","exit_read_mode":"退出阅读模式","notice_outdate_message":"距离上次更新已经 undefined 天了, 文章内容可能已经过时。","sticky":"置顶","just":"刚刚","min":"分钟前","hour":"小时前","day":"天前","month":"个月前"},"swup":true,"plugin":{"flickr_justified_gallery":"https://unpkg.com/flickr-justified-gallery@latest/dist/fjGallery.min.js"},"icons":{"sun":"far fa-sun","moon":"far fa-moon","play":"fas fa-play","email":"far fa-envelope","next":"fas fa-arrow-right","calendar":"far fa-calendar-alt","clock":"far fa-clock","user":"far fa-user","back_top":"fas fa-arrow-up","close":"fas fa-times","search":"fas fa-search","reward":"fas fa-hand-holding-usd","toc_tag":"fas fa-th-list","read":"fas fa-book-reader","arrows":"fas fa-arrows-alt-h","double_arrows":"fas fa-angle-double-down","copy":"fas fa-copy"},"icontype":"font","highlight":{"plugin":"highlighjs","theme":true,"copy":true,"lang":true,"title":"mac","height_limit":200},"toc":{"post_title":true},"live_time":{"start_time":"2024/01/12 17:00:00","prefix":"博客已萌萌哒运行 undefined 天"},"danmu":{"enable":true,"el":".trm-banner","avatar":true,"delayRange":5000,"speed":80},"covers":["/img/block.jpg","https://img2.wallspic.com/previews/7/6/8/1/7/171867/171867-wu_kong-chao_ji_sai_ya_ren-sai_ya_ren-zamasu-long_zhu-500x.jpg","https://img3.wallspic.com/previews/2/0/1/8/6/168102/168102-yi_shu-ka_tong-mian_bu_biao_qing-kuai_le_de-ji_qie-500x.jpg","https://img2.wallspic.com/previews/2/6/4/3/7/173462/173462-qi_fen-zi_se_de-zi_ran_jing_guan-yu_hui-de_ping_xian-500x.jpg","https://img2.wallspic.com/previews/3/3/9/1/3/131933/131933-mo_xing-xiao_jie-huang_se_de-nu_hai-fa_xing-500x.jpg","https://img1.wallspic.com/previews/8/3/4/6/2/126438/126438-wei_lai_zhu_yi-shu_ma_yi_shu-jie_duan-zi_ben_shi-yi_shu-500x.jpg","https://img2.wallspic.com/previews/0/1/5/0/7/170510/170510-guang-azure-zi_se_de-zi_ran_huan_jing-zi_ran_jing_guan-500x.jpg","https://img2.wallspic.com/previews/3/6/9/6/5/156963/156963-yi_shu-qi_fen-yu_hui-shou_shi-ren_men_zai_zi_ran_jie-500x.jpg","https://img1.wallspic.com/previews/0/9/3/5/6/165390/165390-qi_fen-zi_se_de-zi_ran_huan_jing-zi_ran_jing_guan-tian_wen_xue_dui_xiang-500x.jpg","https://img3.wallspic.com/previews/2/8/6/1/7/171682/171682-yi_kuai-xing_zhi-ye_ti-yi_shu-shui_xia-500x.jpg","https://img1.wallspic.com/previews/7/1/9/9/89917/89917-bo_xi_ta_nuo-an_zhuang_de_feng_jing-cheng_shi-suo_lun_tuo-shan_zhan-500x.jpg","https://img1.wallspic.com/previews/6/2/3/5/6/165326/165326-pang_ke2077-pang_ke-qi_fen-xing_zhi-zi_se_de-500x.jpg","https://img2.wallspic.com/previews/8/9/4/5/6/165498/165498-ka_tong-tao-pin_hong_se-zhang_zhang_de_tou_fa-ji_qie-500x.jpg","https://img3.wallspic.com/previews/5/7/4/2/7/172475/172475-yi_shu-tao-tou_fa-ka_tong-500x.jpg","https://img2.wallspic.com/previews/5/0/9/0/70905/70905-hai_yang-ma_er_dai_fu-tian_kong-du_jia_cun-huan_jiao-500x.jpg","https://img3.wallspic.com/previews/4/3/4/8/6/168434/168434-xing_zhi-zi_ran_jing_guan-dan_huang-shui_dao-zhi_bei-500x.jpg","https://img2.wallspic.com/previews/6/5/4/5/6/165456/165456-giy_fu_gang-e_mo_sha_shoukimetsu_no_yaiba-shan_zi_de_yi_shu-zi_se_de-dian_lan_se_de-500x.jpg","https://img1.wallspic.com/previews/5/4/0/4/7/174045/174045-jian_ying-qi_fen-ren_men_zai_zi_ran_jie-tian_wen_xue_dui_xiang-yi_shu-500x.jpg","https://img1.wallspic.com/previews/9/3/1/6/5/156139/156139-feng_jing_hua-yi_shu-shu_ma_yi_shu-qi_fen-sheng_tai_qu-500x.jpg","https://img2.wallspic.com/previews/7/6/4/5/7/175467/175467-wo_de_xue_shu_jie_de_ying_xiong-tao-yi_shu-ka_tong-azure-500x.jpg","https://img1.wallspic.com/previews/3/7/0/0/7/170073/170073-liang_ge_ling-ka_tong-shou_shi-chuang_zao_xing_de_yi_shu-hong_se_de-500x.jpg","https://img1.wallspic.com/previews/1/8/3/6/6/166381/166381-shi_zi-xin_ba-bai_se_shi_zi-hu_xu-mao_ke-500x.jpg","https://img3.wallspic.com/previews/4/2/2/3/7/173224/173224-ri_luo-shui_zi_yuan-qi_fen-yu_hui-zi_se_de-500x.jpg","https://img1.wallspic.com/previews/7/5/7/9/6/169757/169757-ji_bo_li_de_bo_wu_guan-zi_ran_jing_guan-yi_shu-ji_yun-500x.jpg","https://img1.wallspic.com/previews/5/2/0/6/7/176025/176025-qi_fen-tian_wen_xue_dui_xiang-yi_shu-dian_lan_se_de-yuan_quan-500x.jpg","https://img3.wallspic.com/previews/6/5/8/1/4/141856/141856-hen_ku_de-hui_hua-yu_yan_jing_tou-zhai_nan-tu_xing_she_ji-500x.jpg","https://img1.wallspic.com/previews/2/1/6/5/6/165612/165612-kimetsu_no_yaiba-e_mo_sha_shoukimetsu_no_yaiba-tao-tou_fa-wai_tao-500x.jpg","https://img3.wallspic.com/previews/5/1/0/2/4/142015/142015-feng_ge-ka_ka_xi_qi_mu-huo_ying_ren_zhe-tu_xing_she_ji-shi_jue_yi_shu-500x.jpg","https://img1.wallspic.com/previews/8/8/7/8/5/158788/158788-e_mo_sha_shoukimetsu_no_yaiba-shnen_man_hua-tao-ka_tong-azure-500x.jpg"],"creative_commons":{"license":"by-nc-sa","language":"deed.zh-hans"}};</script>
+<script id="async-page-config">window.PAGE_CONFIG = {"isPost":true,"isHome":false,"postUpdate":"2025-01-17 13:57:53"};</script>
+
+<!-- Theme mode css -->
+<link data-swup-theme rel="stylesheet" href="/css/index.css?v=2.2.4" id="trm-switch-style">
+<script>
+    let defaultMode = ASYNC_CONFIG.theme.default !=='auto' ?  ASYNC_CONFIG.theme.default : (window.matchMedia("(prefers-color-scheme: light)").matches ? 'style-light' : 'style-dark')
+    let catchMode = localStorage.getItem('theme-mode') || defaultMode;
+    let type = catchMode === 'style-dark' ? 'add' : 'remove';
+    document.documentElement.classList[type]('dark')
+</script>
+
+<!-- CDN -->
+
+
+    
+    
+
+
+
+<!-- Site Analytics -->
+
+ 
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+
+  <!-- app wrapper -->
+  <div class="trm-app-frame">
+
+    <!-- page preloader -->
+    <div class="trm-preloader">
+    <div class="trm-holder">
+        <div class="preloader">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>
+    <!-- page preloader end -->
+
+    <!-- change mode preloader -->
+    <div class="trm-mode-swich-animation-frame">
+    <div class="trm-mode-swich-animation">
+        <i class="i-sun"><i class="iconfont far fa-sun"></i></i>
+        <div class="trm-horizon"></div>
+        <i class="i-moon"><i class="iconfont far fa-moon"></i></i>
+    </div>
+</div>
+    <!-- change mode preloader end -->
+
+      <!-- scroll container -->
+      <div id="trm-dynamic-content" class="trm-swup-animation">
+        <div id="trm-scroll-container" class="trm-scroll-container" style="opacity: 0">
+            <!-- top bar -->
+            <header class="trm-top-bar">
+	<div class="container">
+		<div class="trm-left-side">
+			<!-- logo -->
+<a href="/" class="trm-logo-frame trm-anima-link">
+    
+    
+</a>
+<!-- logo end -->
+		</div>
+		<div class="trm-right-side">
+			<!-- menu -->
+<div class="trm-menu">
+    <nav>
+        <ul>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/" target="">
+                    首页
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/archives/" target="">
+                    归档
+                </a>
+                
+                <ul>
+                    
+                    <li>
+                        <a  href="/tags/" target="">
+                            标签
+                        </a>
+                    </li>
+                    
+                </ul>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/links/" target="">
+                    友链
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/about/" target="">
+                    关于
+                </a>
+                
+            </li>
+            
+            <li class="menu-item-has-children ">
+                <a  href="/gallery/" target="">
+                    相册
+                </a>
+                
+            </li>
+            
+        </ul>
+    </nav>
+</div>
+<!-- menu end -->
+			
+    <!-- mode switcher place -->
+    <div class="trm-mode-switcher-place">
+        <div class="trm-mode-switcher">
+            <i class="iconfont far fa-sun"></i>
+            <input class="tgl tgl-light" id="trm-swich" type="checkbox">
+            <label class="trm-swich" for="trm-swich"></label>
+            <i class="iconfont far fa-moon"></i>
+        </div>
+    </div>
+    <!-- mode switcher place end -->
+
+			
+		</div>
+		<div class="trm-menu-btn">
+			<span></span>
+		</div>
+	</div>
+</header>
+            <!-- top bar end -->
+
+            <!-- body -->
+            
+<div class="trm-content-start">
+    <!-- banner -->
+    <div class="trm-banner">
+    
+    <!-- banner cover -->
+    <img style="object-position:top;object-fit:cover;" alt="banner" class="trm-banner-cover" src="https://img1.wallspic.com/crops/2/9/1/9/7/179192/179192-shi_jue_yi_shu-wai_tao-wei_xiao-ren_lei_de_shen_ti-shou_shi-2560x1440.jpg">
+    <!-- banner cover end -->
+    
+
+    <!-- banner content -->
+    <div class="trm-banner-content trm-overlay">
+        <div class="container">
+            <div class="row">
+                
+                <div class="col-lg-4"></div>
+                
+                <div class="col-lg-8">
+
+                    <!-- banner title -->
+                    <div class="trm-banner-text ">
+                        <div class="trm-label trm-mb-20">
+                            
+                        </div>
+                        <h1 class="trm-mb-30 trm-hsmb-font">
+                            搭建个人博客网站思路
+                        </h1>
+
+                        
+                            <ul class="trm-breadcrumbs trm-label">
+                                <li>
+                                    <a href="/" class="trm-anima-link">Home</a>
+                                </li>
+                                <li>
+                                    <span>
+                                        2025
+                                    </span>
+                                </li>
+                            </ul>
+                        
+                    </div>
+                    <!-- banner title end -->
+
+                    <!-- scroll hint -->
+                    <span id="scroll-triger" class="trm-scroll-hint-frame">
+                        <div class="trm-scroll-hint"></div>
+                        <span class="trm-label">Scroll down</span>
+                    </span>
+                    <!-- scroll hint end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner content end -->
+</div>
+    <!-- banner end -->
+    <div class="container">
+        <div class="row">
+            
+                <div class="trm-page-sidebar col-lg-4 hidden-sm">
+                    <!-- main card -->
+                    <div class="trm-main-card-frame trm-sidebar">
+    <div class="trm-main-card"> 
+        <!-- card header -->
+<div class="trm-mc-header">
+    <div class="trm-avatar-frame trm-mb-20">
+        <img alt="Avatar" class="trm-avatar" src="/qinxu_avatar.jpg">
+    </div>
+    <h5 class="trm-name trm-mb-15">
+        秦旭
+    </h5>
+    
+        <div class="trm-label">
+            I`m
+            <span class="trm-typed-text">
+                <!-- Words for theme.user.typedText -->
+            </span>
+        </div>
+    
+</div>
+<!-- card header end -->
+        <!-- sidebar social -->
+
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<div class="trm-social">
+    
+        <a href="https://github.com/Karel-cyber" title="github" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-github"></i>
+        </a>
+    
+        <a href="https://gitee.com/stfford" title="gitee" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-gofore"></i>
+        </a>
+    
+        <a href="https://steamcommunity.com/profiles/76561199079210476/" title="steam" rel="nofollow" target="_blank">
+            <i class="iconfont fab fa-steam"></i>
+        </a>
+    
+</div>
+
+<!-- sidebar social end -->
+        <!-- info -->
+<div class="trm-divider trm-mb-40 trm-mt-40"></div>
+<ul class="trm-table trm-mb-20">
+    
+        <li>
+            <div class="trm-label">
+                位置:
+            </div>
+            <div class="trm-label trm-label-light">
+                广东-深圳
+            </div>
+        </li>
+    
+        <li>
+            <div class="trm-label">
+                个人简介:
+            </div>
+            <div class="trm-label trm-label-light">
+                应届实习的开发小白~
+            </div>
+        </li>
+    
+</ul>
+<!-- info end -->
+
+        
+    <div class="trm-divider trm-mb-40 trm-mt-40"></div>
+    <!-- action button -->
+    <div class="text-center">
+        <a href="mailto:mahmudakif814@gmail.com" class="trm-btn">
+            联系我
+            <i class="iconfont far fa-envelope"></i>
+        </a>
+    </div>
+    <!-- action button end -->
+
+    </div>
+</div>
+                    <!-- main card end -->
+                </div>
+            
+            <div class="trm-page-content col-lg-8">
+                <div id="trm-content" class="trm-content">
+                    <div class="trm-post-info row hidden-sm">
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-calendar-alt trm-icon"></i><br>
+            01/17
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-clock trm-icon"></i><br>
+            11:44
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div id="post-author" class="trm-card trm-label trm-label-light text-center">
+            <i class="iconfont far fa-user trm-icon"></i><br>
+            Qinx Xu
+        </div>
+    </div>
+</div>
+<div class="trm-card ">
+    <article id="article-container" class="trm-publication">
+    <h2 id="适用人群："><a href="#适用人群：" class="headerlink" title="适用人群："></a>适用人群：</h2><ul>
+<li>了解并部署过 Hexo 的朋友</li>
+<li>对将 Hexo 部署到服务器上感兴趣的同学</li>
+<li>有一定 Linux 基础，并能熟练使用 Linux 系统的用户</li>
+<li>玩过 Git，具备一定的基础和使用经验</li>
+</ul>
+<h2 id="部署-Hexo-的两种方法"><a href="#部署-Hexo-的两种方法" class="headerlink" title="部署 Hexo 的两种方法"></a>部署 Hexo 的两种方法</h2><h3 id="第一种：本地部署-Hexo"><a href="#第一种：本地部署-Hexo" class="headerlink" title="第一种：本地部署 Hexo"></a>第一种：本地部署 Hexo</h3><p>Hexo 是一个轻量级的博客框架，提供多种主题风格，可以省去我们很多建站时的脑力劳动，提高工作效率。本地部署 Hexo 相对简便，主要环境需求是 Git 和 Node.js。可以通过 Hexo 官方文档按步骤进行搭建。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo 官方文档</a></li>
+</ul>
+<h3 id="第二种：将本地-Hexo-部署到云服务器"><a href="#第二种：将本地-Hexo-部署到云服务器" class="headerlink" title="第二种：将本地 Hexo 部署到云服务器"></a>第二种：将本地 Hexo 部署到云服务器</h3><p>这种方法是本文的重点，主要讲解如何将本地部署的 Hexo 部署到云服务器，实现通过公网域名访问。</p>
+<h4 id="服务器购买"><a href="#服务器购买" class="headerlink" title="服务器购买"></a>服务器购买</h4><p>可以选择华为云、腾讯云、阿里云等云服务商来购买云服务器，很多服务商都提供新人专享优惠。购买完服务器后，我们还需要进行一些配置。</p>
+<h4 id="配置安全组"><a href="#配置安全组" class="headerlink" title="配置安全组"></a>配置安全组</h4><p>购买服务器后，记得配置安全组以开放必要的端口，这样才能进行访问。常见的端口包括：</p>
+<ul>
+<li>SSH: 22</li>
+<li>Tomcat: 80</li>
+<li>Nginx: 80</li>
+<li>Hadoop: 9870</li>
+</ul>
+<p>例如，使用华为云的 CentOS 7 镜像时，我们需要特别注意开放这些端口，确保服务可以正常运行并且能够通过公网访问。</p>
+<img src="/2025/01/17/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%80%9D%E8%B7%AF/image-20250117120248434.png" class="" title="image-20250117120248434"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'>
+
+<h2 id="服务器环境搭建"><a href="#服务器环境搭建" class="headerlink" title="服务器环境搭建"></a>服务器环境搭建</h2><p>​	本文只是为了满足hexo的部署环境搭建，如需要满足其他自行参考网络资料安装，与本作者无关。</p>
+<h3 id="Nginx-服务的搭建："><a href="#Nginx-服务的搭建：" class="headerlink" title="Nginx 服务的搭建："></a>Nginx 服务的搭建：</h3><ol>
+<li><strong>登录云服务器</strong></li>
+</ol>
+<p>​	 使用云服务商提供的远程登录功能，登录到你的云服务器。可以通过设置 root 用户的密码来提高安全性。为了避免潜在的安全风险，建议关闭防火墙。</p>
+<ol start="2">
+<li><p><strong>关闭防火墙</strong></p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld</span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>使用 root 用户，安装Nginx</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y ngix</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>启动Nginx</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">systemctl start ngix</span><br><span class="line">systemctl start ngix.service</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看状态</span></span><br><span class="line">systemctl status ngix</span><br><span class="line"><span class="comment"># 关闭</span></span><br><span class="line">systemctl stop ngix</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>修改配置文件</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/ngix</span><br><span class="line">vim Nginx.conf</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>输入 i 进入 insert 模式，并进行如下修改：</p>
+</blockquote>
+<p>1.将最上方user Nginx改为 root用户</p>
+<img src="/2025/01/17/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%80%9D%E8%B7%AF/image-20250117121358591.png" class="" title="image-20250117121358591"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'>
+
+<p>2.server_name写上你的Ip地址，在 server中更改 root 指向的路径，这里选择 &#x2F;home&#x2F;blog ，后面需要创建该文件夹。  </p>
+<p>​    <img src="/2025/01/17/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%80%9D%E8%B7%AF/image-20250117121321661.png" class="" title="image-20250117121321661"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+<p>3.退出保存文件。此时我们可以直接通过Ip访问的（具体截图无）</p>
+</li>
+</ol>
+<h3 id="安装-Git-以及配置仓库"><a href="#安装-Git-以及配置仓库" class="headerlink" title="安装 Git 以及配置仓库"></a>安装 Git 以及配置仓库</h3><blockquote>
+<p>目的是让我们能够在本地部署到云服务器的git上。</p>
+</blockquote>
+<ol>
+<li><p><strong>安装git</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y git</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>安装结束之后，我们需要配置一个用户（可以随意，QinXu为本人名字）用来装git仓库</strong></p>
+</li>
+</ol>
+   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adduser QinXu</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p><strong>修改用户权限</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 755 /etc/sudoers</span><br><span class="line">vim /etc/sudoers</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>在 sudoers 文件中添加</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">qinxu   ALL=(ALL)       ALL</span><br></pre></td></tr></table></figure>
+
+<img src="/2025/01/17/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%80%9D%E8%B7%AF/image-20250117121936478.png" class="" title="image-20250117121936478"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'>
+</li>
+<li><p><strong>保存之后将sudoers文件调回400权限。</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 400 /etc/sudoers</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>设置一下qinxu账户的登录密码</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">passwd qinxu</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>切换到qinxu用户，并创建.ssh文件夹和公钥密钥文件</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 切换到qinxu用户</span></span><br><span class="line">su qinxu</span><br><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line"><span class="built_in">mkdir</span> .shh &amp;&amp; <span class="built_in">cd</span> .ssh</span><br><span class="line"><span class="comment"># 生成密钥</span></span><br><span class="line">ssh-keygen</span><br><span class="line"><span class="comment"># copy一份出来</span></span><br><span class="line"><span class="built_in">cp</span> id_rsa.pub anthorized_keys</span><br><span class="line"><span class="comment"># 然后修改它的权限</span></span><br><span class="line"><span class="built_in">chmod</span> 600 ~/.ssh/authorized_keys</span><br><span class="line"><span class="built_in">chmod</span> 700 ~/.ssh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>配置好之后，打开本地电脑cmd进行测试</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 命令</span></span><br><span class="line">ssh -v 用户@云服务器的公网IP地址</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>第一次登录需要输入密码的，只要能够成功登录就会出现这个界面 Welcome to Huawei Cloud Service<img src="/2025/01/17/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%80%9D%E8%B7%AF/image-20250117122614634.png" class="" title="image-20250117122614634"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'></p>
+</blockquote>
+</li>
+</ol>
+<h4 id="创建-Git-仓库（qinxu）用户"><a href="#创建-Git-仓库（qinxu）用户" class="headerlink" title="创建 Git 仓库（qinxu）用户"></a>创建 Git 仓库（qinxu）用户</h4><blockquote>
+<p><strong>Tip</strong>： 这里需要注意一个地方就是git版本不一样会是post-receive</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">git init -- bare blog.git</span><br><span class="line">vim /home/qinxu/blog.git/hooks/post-update</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如何分辨用post-update还是post-receive，直接展示这个目录：</span></span><br><span class="line">ll /home/qinxu/blog.git/hooks/</span><br></pre></td></tr></table></figure>
+
+<p>你会发现有一个 <code>post-update.sample</code> 文件，如果使用的是 <code>post-receive</code>，则不会有这个文件。</p>
+<img src="/2025/01/17/%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%BD%91%E7%AB%99%E6%80%9D%E8%B7%AF/image-20250117124316922.png" class="" title="image-20250117124316922"  data-tag='post-image' onload='this.onload=null;this.style.opacity=1;' loading="lazy" onerror='this.onerror=null;this.src="/img/404.jpg"'>
+
+<h3 id="配置-post-update-文件"><a href="#配置-post-update-文件" class="headerlink" title="配置 post-update 文件"></a>配置 <code>post-update</code> 文件</h3><p>需要在 <code>post-update</code> 文件中添加以下内容（重点）：</p>
+<blockquote>
+<p>– <code>work-tree</code> 路径需要与 Nginx 配置文件中的 <code>root</code> 路径保持一致。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --work-tree=/home/blog --git-dir=/home/qinxu/blog.git checkout -f</span><br></pre></td></tr></table></figure>
+
+<p><strong>解释</strong>：这个命令的意思是将 Git 仓库 <code>/home/qinxu/blog.git</code> 中的内容检出（更新）到 <code>/home/blog</code> 目录，并且会覆盖 <code>/home/blog</code> 中的修改，确保工作目录与仓库内容一致。</p>
+<h3 id="修改权限"><a href="#修改权限" class="headerlink" title="修改权限"></a>修改权限</h3><ol>
+<li>修改 <code>post-update</code> 文件权限：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod +x ~/home/qinxu/blog.git/hooks/post-update</span><br><span class="line">exit # 退出到 root 登录</span><br><span class="line">chown -R qinxu:qinxu /home/qinxu/blog.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="本地完成推送部署"><a href="#本地完成推送部署" class="headerlink" title="本地完成推送部署"></a>本地完成推送部署</h3><p>在本地的 Hexo 根目录下，找到 <code>_config.yml</code> 文件。</p>
+<p>编辑该文件，修改 <code>deploy</code> 配置：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line"> type: git</span><br><span class="line"> repo: qinxu@云服务器的公网IP:/home/qinxu/blog.git</span><br><span class="line"> branch: master</span><br><span class="line"> message:</span><br></pre></td></tr></table></figure>
+
+<h3 id="发布到服务器"><a href="#发布到服务器" class="headerlink" title="发布到服务器"></a>发布到服务器</h3><p>执行以下命令进行部署：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean 清除缓存</span><br><span class="line">hexo g  生成静态文件</span><br><span class="line">hexo d  部署</span><br></pre></td></tr></table></figure>
+
+
+
+
+</article>
+    
+    
+
+<ul class="trm-post-copyright">
+    <li class="trm-post-copyright-author">
+        <strong>本文作者：</strong>
+        Qinx Xu
+    </li>
+    <li class="trm-post-copyright-link">
+        <strong>本文链接：</strong>
+        <a id="original-link" href="https://karel-cyber.github.io/2025/01/17/搭建个人博客网站思路/" title="搭建个人博客网站思路">https://karel-cyber.github.io/2025/01/17/搭建个人博客网站思路/</a>
+    </li>
+    <li class="trm-post-copyright-license">
+        <strong>版权声明：</strong>
+        本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 ">CC BY-NC-SA 4.0</a> 许可协议。
+    </li>
+</ul>
+
+
+</div>
+<div class="trm-post-next-prev row">
+    <div class="col-lg-12">
+        <!-- title -->
+        <h5 class="trm-title-with-divider">
+            其他文章
+            <span data-number="02"></span>
+        </h5>
+    </div>
+    
+    
+        <div class="col-lg-6">
+    <div class="trm-older-publications-card trm-scroll-animation trm-active-el">
+        <div class="trm-older-publication">
+            
+            <a class="trm-op-top trm-anima-link" href="/2025/01/16/Springboot-MybatisPlus-Vue-%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/">
+                <span class="trm-op-cover">
+                    <img alt="cover" class="no-fancybox" src="/img/block.jpg">
+                </span>
+                <h6 class="trm-op-title">Springboot+MybatisPlus+Vue 前后端分离</h6>
+            </a>
+            <div class="trm-divider trm-mb-15 trm-mt-20"></div>
+            <ul class="trm-card-data trm-label">
+                <li>25/01/16</li>
+                <li>10:55</li>
+                <li>Java</li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+</div>
+
+    
+
+
+
+                    <div class="trm-divider footer-divider"></div>
+
+                    <!-- footer -->
+                    <footer class="trm-footer-card trm-scroll-animation">
+
+    
+
+    
+        <div class="trm-footer-item">
+            <span>© 2024 - 2025</span>
+            <span class="footer-separator"data-separator=" · "></span>
+            <span class="trm-accent-color">秦旭</span>
+        </div>
+    
+
+      
+
+    
+        <div class="trm-footer-item blog-run-long"></div>
+     
+
+    
+        <div class="trm-footer-item">
+            西北望，射天狼
+        </div>
+     
+</footer>
+                    <!-- footer end -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            <!-- body end -->
+
+            
+
+    <div id="post-toc" class="trm-post-toc">
+      <div class="trm-post-toc-header">
+        目录导航
+				<span id="post-toc-top">
+					置顶
+				</span>
+      </div>
+      <div class="trm-post-toc-content">
+        <ol class="trm-toc"><li class="trm-toc-item trm-toc-level-2" title="适用人群："><a rel="nofollow" class="trm-toc-link" href="#适用人群："><span class="trm-toc-text">适用人群：</span></a></li><li class="trm-toc-item trm-toc-level-2" title="部署 Hexo 的两种方法"><a rel="nofollow" class="trm-toc-link" href="#部署-Hexo-的两种方法"><span class="trm-toc-text">部署 Hexo 的两种方法</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="第一种：本地部署 Hexo"><a rel="nofollow" class="trm-toc-link" href="#第一种：本地部署-Hexo"><span class="trm-toc-text">第一种：本地部署 Hexo</span></a></li><li class="trm-toc-item trm-toc-level-3" title="第二种：将本地 Hexo 部署到云服务器"><a rel="nofollow" class="trm-toc-link" href="#第二种：将本地-Hexo-部署到云服务器"><span class="trm-toc-text">第二种：将本地 Hexo 部署到云服务器</span></a></li></ol></li><li class="trm-toc-item trm-toc-level-2" title="服务器环境搭建"><a rel="nofollow" class="trm-toc-link" href="#服务器环境搭建"><span class="trm-toc-text">服务器环境搭建</span></a><ol class="trm-toc-child"><li class="trm-toc-item trm-toc-level-3" title="Nginx 服务的搭建："><a rel="nofollow" class="trm-toc-link" href="#Nginx-服务的搭建："><span class="trm-toc-text">Nginx 服务的搭建：</span></a></li><li class="trm-toc-item trm-toc-level-3" title="安装 Git 以及配置仓库"><a rel="nofollow" class="trm-toc-link" href="#安装-Git-以及配置仓库"><span class="trm-toc-text">安装 Git 以及配置仓库</span></a></li><li class="trm-toc-item trm-toc-level-3" title="配置 post-update 文件"><a rel="nofollow" class="trm-toc-link" href="#配置-post-update-文件"><span class="trm-toc-text">配置 post-update 文件</span></a></li><li class="trm-toc-item trm-toc-level-3" title="修改权限"><a rel="nofollow" class="trm-toc-link" href="#修改权限"><span class="trm-toc-text">修改权限</span></a></li><li class="trm-toc-item trm-toc-level-3" title="本地完成推送部署"><a rel="nofollow" class="trm-toc-link" href="#本地完成推送部署"><span class="trm-toc-text">本地完成推送部署</span></a></li><li class="trm-toc-item trm-toc-level-3" title="发布到服务器"><a rel="nofollow" class="trm-toc-link" href="#发布到服务器"><span class="trm-toc-text">发布到服务器</span></a></li></ol></li></ol>
+      </div>
+    </div>
+
+            
+<div class="trm-fixed-container">
+    
+        <div class="trm-fixed-btn post-toc-btn" data-title="目录">
+            <i class="iconfont fas fa-th-list"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn" data-title="阅读模式" onclick="asyncFun.switchReadMode()">
+            <i class="iconfont fas fa-book-reader"></i>
+        </div>
+    
+    
+        <div class="trm-fixed-btn hidden-md" data-title="单栏和双栏切换" onclick="asyncFun.switchSingleColumn()">
+            <i class="iconfont fas fa-arrows-alt-h"></i>
+        </div>
+    
+    <div id="trm-back-top" class="trm-fixed-btn" data-title="回到顶部">
+        <i class="iconfont fas fa-arrow-up"></i>
+    </div>
+</div>
+        </div>
+      </div>
+      <!-- scroll container end -->
+  </div>
+  <!-- app wrapper end -->
+
+  
+  <!-- Plugin -->
+
+
+
+
+    
+<script src="https://unpkg.com/swup@2.0.19/dist/swup.min.js"></script>
+
+    
+<script src="https://unpkg.com/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+
+    
+
+    
+        <script src="/js/plugins/typing.js?v=2.2.4"></script>
+    
+
+    
+
+    <!-- 数学公式 -->
+    
+
+    <!-- 评论插件 -->
+    
+        
+
+        
+    
+
+		
+			<script src="/js/plugins/danmu.js?v=2.2.4"></script>
+		
+
+
+
+
+    <!-- Service Worker -->
+    
+    <!-- baidu push -->
+    
+    <script data-swup-reload-script>
+        (function () {
+            var bp = document.createElement('script');
+            var curProtocol = window.location.protocol.split(':')[0];
+            if (curProtocol === 'https') {
+                bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+            }
+            else {
+                bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+            }
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(bp, s);
+        })();
+    </script>
+
+
+
+<script id="async-script" src="/js/main.js?v=2.2.4"></script>
+
+<!-- CDN -->
+
+
+    
+
+    
+
+    
+
+
+
+</body>
+
+</html>
